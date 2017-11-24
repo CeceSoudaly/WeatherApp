@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		A9108F1A1FC7DBF00079ABE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F191FC7DBF00079ABE1 /* AppDelegate.swift */; };
-		A9108F1C1FC7DBF00079ABE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F1B1FC7DBF00079ABE1 /* ViewController.swift */; };
 		A9108F1F1FC7DBF00079ABE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9108F1D1FC7DBF00079ABE1 /* Main.storyboard */; };
 		A9108F211FC7DBF00079ABE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9108F201FC7DBF00079ABE1 /* Assets.xcassets */; };
 		A9108F241FC7DBF00079ABE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9108F221FC7DBF00079ABE1 /* LaunchScreen.storyboard */; };
 		A9108F2F1FC7DBF00079ABE1 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F2E1FC7DBF00079ABE1 /* WeatherAppTests.swift */; };
 		A9108F3A1FC7DBF00079ABE1 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F391FC7DBF00079ABE1 /* WeatherAppUITests.swift */; };
+		A9108F4A1FC7DD230079ABE1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9108F481FC7DD230079ABE1 /* Model.xcdatamodeld */; };
+		A9108F4F1FC7E1CA0079ABE1 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F4E1FC7E1CA0079ABE1 /* WeatherTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		A9108F161FC7DBF00079ABE1 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9108F191FC7DBF00079ABE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9108F1B1FC7DBF00079ABE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9108F1E1FC7DBF00079ABE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9108F201FC7DBF00079ABE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9108F231FC7DBF00079ABE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		A9108F351FC7DBF00079ABE1 /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9108F391FC7DBF00079ABE1 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		A9108F3B1FC7DBF00079ABE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9108F491FC7DD230079ABE1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A9108F4E1FC7E1CA0079ABE1 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +99,9 @@
 		A9108F181FC7DBF00079ABE1 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				A9108F4B1FC7E11F0079ABE1 /* View */,
+				A9108F471FC7DD0A0079ABE1 /* Model */,
 				A9108F191FC7DBF00079ABE1 /* AppDelegate.swift */,
-				A9108F1B1FC7DBF00079ABE1 /* ViewController.swift */,
 				A9108F1D1FC7DBF00079ABE1 /* Main.storyboard */,
 				A9108F201FC7DBF00079ABE1 /* Assets.xcassets */,
 				A9108F221FC7DBF00079ABE1 /* LaunchScreen.storyboard */,
@@ -123,6 +126,22 @@
 				A9108F3B1FC7DBF00079ABE1 /* Info.plist */,
 			);
 			path = WeatherAppUITests;
+			sourceTree = "<group>";
+		};
+		A9108F471FC7DD0A0079ABE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9108F481FC7DD230079ABE1 /* Model.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9108F4B1FC7E11F0079ABE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9108F4E1FC7E1CA0079ABE1 /* WeatherTableViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9108F1C1FC7DBF00079ABE1 /* ViewController.swift in Sources */,
 				A9108F1A1FC7DBF00079ABE1 /* AppDelegate.swift in Sources */,
+				A9108F4F1FC7E1CA0079ABE1 /* WeatherTableViewController.swift in Sources */,
+				A9108F4A1FC7DD230079ABE1 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G3BLNBS74P;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CeceMobile.WeatherApp;
@@ -441,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G3BLNBS74P;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CeceMobile.WeatherApp;
@@ -552,6 +574,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A9108F481FC7DD230079ABE1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A9108F491FC7DD230079ABE1 /* Model.xcdatamodel */,
+			);
+			currentVersion = A9108F491FC7DD230079ABE1 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A9108F0E1FC7DBF00079ABE1 /* Project object */;
 }
