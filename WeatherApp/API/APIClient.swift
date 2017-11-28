@@ -31,16 +31,24 @@ extension APIClient{
         let task = session.dataTask(with: request){(data, respond, error) in
             
             guard error == nil else{
-                completion(.error(.apierror))
+                completion(.error(.apiError))
                 return
             }
-            
-            guard let respond = respond as? HTTPURLResponse, 200..<300 -= respond.statusCode else{
+    
+            guard let respond = respond as? HTTPURLResponse, 200 ..< 300 ~= respond.statusCode else{
                 completion(.error(.badResponse))
                 return
             }
             
+            guard let value = try? JSONDecoder().decode(V.self, from: data!) else{
+                completion(.error(.jsonDecoder))
+                return
+            }
+            
+            completion(.value(value))
             
         }
+        
+        task.resume()
     }
 }

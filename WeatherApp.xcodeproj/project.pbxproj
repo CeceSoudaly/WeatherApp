@@ -17,6 +17,7 @@
 		A9108F4F1FC7E1CA0079ABE1 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F4E1FC7E1CA0079ABE1 /* WeatherTableViewController.swift */; };
 		A9437F511FC9253200D5E36B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9437F501FC9253200D5E36B /* Weather.swift */; };
 		A9437F531FC92C5A00D5E36B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9437F521FC92C5A00D5E36B /* APIClient.swift */; };
+		A98601D01FCCF5C0004AFA88 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98601CF1FCCF5C0004AFA88 /* EndPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A9108F4E1FC7E1CA0079ABE1 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		A9437F501FC9253200D5E36B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		A9437F521FC92C5A00D5E36B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A98601CF1FCCF5C0004AFA88 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			children = (
 				A9437F501FC9253200D5E36B /* Weather.swift */,
 				A9437F521FC92C5A00D5E36B /* APIClient.swift */,
+				A98601CF1FCCF5C0004AFA88 /* EndPoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A98601D01FCCF5C0004AFA88 /* EndPoint.swift in Sources */,
 				A9437F511FC9253200D5E36B /* Weather.swift in Sources */,
 				A9108F1A1FC7DBF00079ABE1 /* AppDelegate.swift in Sources */,
 				A9108F4F1FC7E1CA0079ABE1 /* WeatherTableViewController.swift in Sources */,
