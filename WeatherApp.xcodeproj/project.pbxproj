@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9013A3A1FD123CF0017BA5B /* WeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9013A391FD123CF0017BA5B /* WeatherAPIClient.swift */; };
 		A9108F1A1FC7DBF00079ABE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F191FC7DBF00079ABE1 /* AppDelegate.swift */; };
 		A9108F1F1FC7DBF00079ABE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9108F1D1FC7DBF00079ABE1 /* Main.storyboard */; };
 		A9108F211FC7DBF00079ABE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9108F201FC7DBF00079ABE1 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9013A391FD123CF0017BA5B /* WeatherAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIClient.swift; sourceTree = "<group>"; };
 		A9108F161FC7DBF00079ABE1 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9108F191FC7DBF00079ABE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9108F1E1FC7DBF00079ABE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				A9437F501FC9253200D5E36B /* Weather.swift */,
 				A9437F521FC92C5A00D5E36B /* APIClient.swift */,
 				A98601CF1FCCF5C0004AFA88 /* EndPoint.swift */,
+				A9013A391FD123CF0017BA5B /* WeatherAPIClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				A9108F4F1FC7E1CA0079ABE1 /* WeatherTableViewController.swift in Sources */,
 				A9437F531FC92C5A00D5E36B /* APIClient.swift in Sources */,
 				A9108F4A1FC7DD230079ABE1 /* Model.xcdatamodeld in Sources */,
+				A9013A3A1FD123CF0017BA5B /* WeatherAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
