@@ -25,6 +25,8 @@ extension Endpoint{
     }
     
     var request: URLRequest{
+        
+        print("url....",urlComponent.url)
         return URLRequest(url: urlComponent.url!)
     }
 }
@@ -40,7 +42,7 @@ enum WeatherEndpoint: Endpoint{
     var path: String{
         switch self{
         case .tenDayForecast(let city, let state):
-            return "/api/395bc939b683474d/forecast10day/q/MN/Minneapolis.json"
+            return "/api/395bc939b683474d/forecast10day/q/\(state)/\(city).json"
         }
     }
     

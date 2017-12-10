@@ -17,7 +17,7 @@ struct Forecast: Codable{
     let forecastText: ForecastText
     
     private enum CodingKeys: String, CodingKey{
-        case forecastText = "txt_corecast"
+        case forecastText = "txt_forecast"
     }
 }
 
@@ -37,8 +37,8 @@ struct ForecastDay: Codable {
     let description:String
     
     private enum CodingKeys: String, CodingKey{
-        case iconUrl = "icon_Url"
+        case iconUrl = "icon_url"
         case day = "title"
-        case description = "ftctext"
+        case description = "fcttext"
     }
 }
