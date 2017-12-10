@@ -9,12 +9,11 @@
 import UIKit
 
 struct WeatherCellViewModel{
-    let url: String
+    let url: URL
     let day: String
     let description: String
     
     func loadImage(completion: @escaping (UIImage?) -> Void){
-        
         guard let imageData = try? Data(contentsOf: url) else
         {
             return
