@@ -11,6 +11,10 @@ import UIKit
 class WeatherTableViewController: UITableViewController {
 
     override func viewDidLoad() {
+        
+        var cellViewModels = [WeatherCellViewModel]()
+        
+        
         super.viewDidLoad()
         let weatherApi = WeatherAPIClient()
         let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: "Boston", state: "MA")
@@ -18,7 +22,10 @@ class WeatherTableViewController: UITableViewController {
         weatherApi.weather(with: weatherEndpoint){ (either) in
             switch either{
             case .value(let forecastText):
-                print(forecastText)
+                cellViewModels = forecastText.forecastDays.map {
+                    WeatherCellViewModel(url: $0.iconUrl , day: $0.day, description: $0.description)
+                }
+                
             case .error(let error):
                 print(error)
             }

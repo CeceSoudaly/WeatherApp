@@ -35,7 +35,6 @@ extension APIClient{
                 return
             }
           
-//            print("respond.statusCode >>>> ",respond)
             
             guard let respond = respond as? HTTPURLResponse, 200 ..< 300 ~= respond.statusCode else{
                 completion(.error(.badResponse))
