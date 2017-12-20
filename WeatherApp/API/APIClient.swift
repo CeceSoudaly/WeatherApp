@@ -63,24 +63,5 @@ extension APIClient{
         
         task.resume()
     }
-    
-    /* Helper: Given raw JSON, return a usable Foundation object */
- func parseJSONWithCompletionHandler(data: NSData, completionHandler: (_ result: AnyObject?, _ error: NSError?) -> Void) {
-        
-        var parsedResult: AnyObject!
-        do {
-            
-            let json = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments) as? [String : Any]
-            
-            parsedResult = json as AnyObject
-            
-            let posts = parsedResult["posts"] as? [[String: Any]] ?? []
-            
-        } catch {
-            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
-            completionHandler(nil, NSError(domain: "parseJSONWithCompletionHandler", code: 1, userInfo: userInfo))
-        }
-        
-        completionHandler(parsedResult, nil)
-    }
+   
 }

@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G1036" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="City" representedClassName=".City" syncable="YES" codeGenerationType="class">
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Day" representedClassName=".Day" syncable="YES" codeGenerationType="class">
-        <attribute name="monday" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sunday" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tuesday" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Temperature" representedClassName=".Temperature" syncable="YES" codeGenerationType="class">
-        <attribute name="degree" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Weather" representedClassName=".Weather" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forecastDays" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forecastText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iconUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tempDescription" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="City" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="Day" positionX="-54" positionY="0" width="128" height="90"/>
-        <element name="Temperature" positionX="-36" positionY="36" width="128" height="60"/>
+        <element name="Weather" positionX="-54" positionY="-9" width="128" height="135"/>
     </elements>
 </model>
