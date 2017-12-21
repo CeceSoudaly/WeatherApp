@@ -30,5 +30,49 @@ public class WeatherCoreData: NSManagedObject {
         static let day = "title"
         static let tempdescription = "fcttext"
     }
+    
+    // Init method to insert object in core data
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+    }
+    
+    
+    convenience init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+        
+        // An EntityDescription is an object that has access to all
+        // the information you provided in the Entity part of the model
+        // you need it to create an instance of this class.
+        if let ent = NSEntityDescription.entity(forEntityName: "Weather", in: context) {
+            self.init(entity: ent, insertInto: context)
+            
+            if(dictionary[Keys.forecastText] != nil ){
+                self.forecastText = dictionary[Keys.forecastText] as! String
+            }
+            
+            if(dictionary[Keys.date]  != nil ){
+                self.date = dictionary[Keys.date] as! String
+            }
+            
+            if(dictionary[Keys.forecastDays]  != nil ){
+                self.forecastDays = dictionary[Keys.forecastDays] as! String
+            }
+            
+            if(dictionary[Keys.iconUrl]  != nil ){
+                self.iconUrl = dictionary[Keys.iconUrl] as! String
+            }
+            
+            if(dictionary[Keys.day]  != nil ){
+                self.day = dictionary[Keys.day] as! String
+            }
+            
+            if(dictionary[Keys.tempdescription]  != nil ){
+                self.tempDescription = dictionary[Keys.tempdescription] as! String
+            }
+            
+        } else {
+            fatalError("Unable to find Entity name!")
+        }
+    }
+
 
 }
