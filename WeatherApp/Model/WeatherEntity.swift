@@ -1,8 +1,8 @@
 //
-//  Weather+CoreDataClass.swift
+//  WeatherEntity+CoreDataClass.swift
 //  WeatherApp
 //
-//  Created by Cece Soudaly on 12/19/17.
+//  Created by Cece Soudaly on 12/25/17.
 //  Copyright © 2017 CeceMobile. All rights reserved.
 //
 //
@@ -10,15 +10,19 @@
 import Foundation
 import CoreData
 
-public class WeatherCoreData: NSManagedObject {
+
+public class WeatherEntity: NSManagedObject {
     
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<WeatherEntity> {
+        return NSFetchRequest<WeatherEntity>(entityName: "WeatherEntity")
+    }
+    
+    @NSManaged public var forecastdays: [Double]?
     @NSManaged public var forecastText: String?
-    @NSManaged public var date: String?
-    @NSManaged public var forecastDays: String?
     @NSManaged public var iconUrl: String?
-    @NSManaged public var day: String?
     @NSManaged public var tempDescription: String?
-    
+    @NSManaged public var date: String?
+    @NSManaged public var day: String?
     
     // Keys to convert dictionary into object
     struct Keys {
@@ -42,20 +46,24 @@ public class WeatherCoreData: NSManagedObject {
         // An EntityDescription is an object that has access to all
         // the information you provided in the Entity part of the model
         // you need it to create an instance of this class.
-        if let ent = NSEntityDescription.entity(forEntityName: "Weather", in: context) {
+        if let ent = NSEntityDescription.entity(forEntityName: "WeatherEntity", in: context) {
             self.init(entity: ent, insertInto: context)
             
-            if(dictionary[Keys.forecastText] != nil ){
-                self.forecastText = dictionary[Keys.forecastText] as! String
-            }
+            //            if(dictionary[Keys.forecastText] != nil ){
+            //                let swiftString:String = dictionary[Keys.forecastText] as! String
+            //                let objCString:NSString = NSString(string:swiftString)
+            //
+            //               //self.forecastText = dictionary[Keys.forecastText] as! String
+            //            }
+            
             
             if(dictionary[Keys.date]  != nil ){
                 self.date = dictionary[Keys.date] as! String
             }
             
-            if(dictionary[Keys.forecastDays]  != nil ){
-                self.forecastDays = dictionary[Keys.forecastDays] as! String
-            }
+//            if(dictionary[Keys.forecastDays]  != nil ){
+//                self.forecastDays = dictionary[Keys.forecastDays] as! [Double]
+//            }
             
             if(dictionary[Keys.iconUrl]  != nil ){
                 self.iconUrl = dictionary[Keys.iconUrl] as! String
@@ -73,6 +81,5 @@ public class WeatherCoreData: NSManagedObject {
             fatalError("Unable to find Entity name!")
         }
     }
-
 
 }
