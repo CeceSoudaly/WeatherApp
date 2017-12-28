@@ -61,21 +61,6 @@ extension APIClient{
         
         task.resume()
     }
-    
-    
-    // given raw JSON, return a usable Foundation object
-//    private func fetch<V: Codable>  convertDataWithCompletionHandler(_ data: Data, completion: (Either <V, APIError>) -> Void) {
-//
-//        var parsedResult: AnyObject! = nil
-//        do {
-//               parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
-//
-//        } catch {
-//            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
-//            //            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
-//        }
-//
-//         completionHandlerForConvertData(parsedResult, nil) as! (Either<_V, APIError>)
-//    }
+  
    
 }

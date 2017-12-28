@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="WeatherEntity" representedClassName=".WeatherEntity" syncable="YES">
+    <entity name="WeatherEntity" representedClassName=".WeatherEntity" isAbstract="YES" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="forecastdays" optional="YES" attributeType="Transformable" customClassName="." syncable="YES"/>
-        <attribute name="forecastText" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="iconUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forecastdays" optional="YES" attributeType="Transformable" customClassName="." storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="forecastText" optional="YES" attributeType="String" customClassName="." storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="iconUrl" optional="YES" attributeType="String" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="tempDescription" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>

@@ -20,18 +20,40 @@ class WeatherTableViewController: UITableViewController {
         
         //Check to see if we have it stored on CoreData
         //If no data we go back to get a new set of weather
-        print(">>>> ",self.fetchAllTempetures())
-        
-        if(self.fetchAllTempetures().count > 0)
+//        print(">>>> ",self.fetchAllTempetures())
+        var resultsWeatherEntity = self.fetchAllTempetures()
+        if(resultsWeatherEntity.count > 0)
         {
-            self.deleteWeather(results: self.fetchAllTempetures())
+            //self.deleteWeather(results: resultsWeatherEntity)
+            var WeatherList:[AnyObject] = []
+            WeatherList = resultsWeatherEntity
+            
+//            self.cellViewModels = WeatherList.forecastDays.map {
+//                WeatherCellViewModel(url: $0.iconUrl , day: $0.day, description: $0.description)
+//            }
+            for WeatherEntity in WeatherList as! [WeatherEntity] {
+                
+                 print(type(of: WeatherEntity))
+                 print("This Works!",WeatherEntity.forecastdays)
+                
+                if WeatherEntity is WeatherEntity.Type {
+                    //This Works!
+                    print("This Works!",WeatherEntity.forecastdays)
+                    
+                
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
         else{
             weatherApi.weather(with: weatherEndpoint){ (either) in
                 switch either{
                 case .value(let forecastText):
                     
-                    //print(forecastText)
+                    print(type(of: forecastText.forecastDays))
                     
                     self.cellViewModels = forecastText.forecastDays.map {
                         WeatherCellViewModel(url: $0.iconUrl , day: $0.day, description: $0.description)
@@ -52,18 +74,13 @@ class WeatherTableViewController: UITableViewController {
     
     
     func fetchAllTempetures() -> [WeatherEntity] {
-        var error:NSError? = nil
+        var _:NSError? = nil
         var results:[WeatherEntity]!
         do{
                 //Create the fetch request
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherEntity")
                 results = try CoreDataManager.getContext().fetch(fetchRequest) as! [WeatherEntity]
                 print("results >>>",results.count);
-                
-                if(results.count > 0)
-                {
-                    self.deleteWeather(results: results)
-                }
         }
         catch{
             print("Error in fetchAllLocations")
