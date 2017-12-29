@@ -19,34 +19,21 @@ class WeatherTableViewController: UITableViewController {
         let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: "Minneapolis", state: "MN")
         
         //Check to see if we have it stored on CoreData
-        //If no data we go back to get a new set of weather
-//        print(">>>> ",self.fetchAllTempetures())
+        //If no data we go back to get a new set of
+        
         var resultsWeatherEntity = self.fetchAllTempetures()
+        print("how many record saved in core data>>>> ",resultsWeatherEntity.count)
+        
         if(resultsWeatherEntity.count > 0)
         {
-            //self.deleteWeather(results: resultsWeatherEntity)
-            var WeatherList:[AnyObject] = []
-            WeatherList = resultsWeatherEntity
+            print("blah there are data save to core data....")
             
-//            self.cellViewModels = WeatherList.forecastDays.map {
-//                WeatherCellViewModel(url: $0.iconUrl , day: $0.day, description: $0.description)
-//            }
-            for WeatherEntity in WeatherList as! [WeatherEntity] {
-                
-                 print(type(of: WeatherEntity))
-                 print("This Works!",WeatherEntity.forecastdays)
-                
-                if WeatherEntity is WeatherEntity.Type {
-                    //This Works!
-                    print("This Works!",WeatherEntity.forecastdays)
-                    
-                
-                }
+            for saveWeather in resultsWeatherEntity {
+                 print("day...",saveWeather.day)
+                 print("iconUrl...",saveWeather.iconUrl)
+                 print("iconUrl...",saveWeather.tempDescription)
             }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.deleteWeather(results: resultsWeatherEntity)
         }
         else{
             weatherApi.weather(with: weatherEndpoint){ (either) in
@@ -54,10 +41,13 @@ class WeatherTableViewController: UITableViewController {
                 case .value(let forecastText):
                     
                     print(type(of: forecastText.forecastDays))
-                    
+                
+                    //save to core data
+                    self.saveToCoreData(ForecastList: forecastText)
                     self.cellViewModels = forecastText.forecastDays.map {
-                        WeatherCellViewModel(url: $0.iconUrl , day: $0.day, description: $0.description)
-                    }
+                        //display
+                        WeatherCellViewModel(url: $0.iconUrl, day: $0.day, description: $0.description)
+                     }
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -72,6 +62,34 @@ class WeatherTableViewController: UITableViewController {
        
     }
     
+    func saveToCoreData(ForecastList: ForecastText)
+    {
+         print("This Works!",ForecastList)
+       
+//        ForecastList.forecastDays.map {
+//
+//           let weatherDictionary: [String : AnyObject] = [
+//                   WeatherEntity.Keys.iconUrl :  $0.iconUrl   as AnyObject,
+//                   WeatherEntity.Keys.day : $0.day as String as AnyObject,
+//                   WeatherEntity.Keys.tempdescription : $0.description as String as AnyObject
+//
+//            ]
+//
+//            WeatherEntity(dictionary: weatherDictionary, context: CoreDataManager.getContext())
+//        }
+        
+        let weatherDictionary: [String : AnyObject] = [
+            WeatherEntity.Keys.forecastText :  ForecastList.forecastDays  as AnyObject
+        ]
+       
+        do {
+             try
+                  CoreDataManager.saveContext()
+            
+        } catch {
+            print("Error while trying to save : \(error)")
+        }
+    }
     
     func fetchAllTempetures() -> [WeatherEntity] {
         var _:NSError? = nil
@@ -91,19 +109,12 @@ class WeatherTableViewController: UITableViewController {
     func deleteWeather(results: [WeatherEntity]) {
         var _:NSError? = nil
         
-      //  var results:[WeatherEntity]!
-        //results = self.fetchAllTempetures();
-        
         for objectDelete in results {
-//            if(objectDelete.longitude == locationToDelete.longitude)
-//            {
                 CoreDataManager.getContext().delete(objectDelete)
                 CoreDataManager.saveContext()
-//                break
-//            }
         }
         
-         print("after results >>>",results.count);
+         print("after DELETE results >>>",self.fetchAllTempetures().count);
      }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

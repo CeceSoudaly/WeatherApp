@@ -49,13 +49,7 @@ public class WeatherEntity: NSManagedObject {
         // you need it to create an instance of this class.
         if let ent = NSEntityDescription.entity(forEntityName: "WeatherEntity", in: context) {
             self.init(entity: ent, insertInto: context)
-            
-//            if(dictionary[Keys.forecastText] != nil ){
-//                let swiftString:String = dictionary[Keys.forecastText] as! String
-//                let objCString:NSString = NSString(string:swiftString)
-//                
-//                self.forecastText = dictionary[Keys.forecastText]  as! [Double]
-//            }
+
             
             
             if(dictionary[Keys.date]  != nil ){

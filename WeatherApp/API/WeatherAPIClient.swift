@@ -26,24 +26,6 @@ class WeatherAPIClient: APIClient {
         
             case .value(let weather):
                 let textForecast = weather.forecast.forecastText
-               
-                let weatherDictionary: [String : AnyObject] = [
-                 //   WeatherEntity.Keys.forecastText :  textForecast   as AnyObject,
-                  //  WeatherEntity.Keys.date : textForecast.date as AnyObject,
-                    WeatherEntity.Keys.forecastDays : textForecast.forecastDays as AnyObject,
-                  //  WeatherEntity.Keys.tempdescription : textForecast.forecastDays.description as AnyObject
-                ]
-
-              
-              do {
-                       let weatherToBeAdded = try WeatherEntity(dictionary: weatherDictionary, context: CoreDataManager.getContext())
-                        
-                       try CoreDataManager.saveContext()
-                
-                } catch {
-                    print("Error while trying to save : \(error)")
-                }
-          
                 completion(.value(textForecast))
                 
             case .error(let error):
