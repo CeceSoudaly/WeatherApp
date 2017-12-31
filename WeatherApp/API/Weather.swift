@@ -32,11 +32,13 @@ struct ForecastText: Codable{
 }
 
 struct ForecastDay: Codable {
+    let period: Double
     let iconUrl: String
     let day:String
     let description:String
     
     private enum CodingKeys: String, CodingKey{
+        case period = "period"
         case iconUrl = "icon_url"
         case day = "title"
         case description = "fcttext"

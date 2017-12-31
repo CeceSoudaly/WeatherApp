@@ -23,7 +23,7 @@ class CoreDataManager {
     //MARK:- SharedInstance
     class func sharedInstance()-> CoreDataManager {
         struct Static {
-            static let instance = CoreDataManager(modelName: "Model")
+            static let instance = CoreDataManager(modelName: "ModelA")
         }
         return Static.instance!
     }
@@ -46,7 +46,7 @@ class CoreDataManager {
     // The managed object property for the application
     lazy var managedObjectModel: NSManagedObjectModel? = {
         
-        if  let modelURL = Bundle.main.url(forResource: "Model", withExtension: "momd") {
+        if  let modelURL = Bundle.main.url(forResource: "ModelA", withExtension: "momd") {
             if let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) {
                 return managedObjectModel
             }
@@ -150,7 +150,7 @@ class CoreDataManager {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "Model")
+        let container = NSPersistentContainer(name: "ModelA")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

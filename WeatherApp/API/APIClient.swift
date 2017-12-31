@@ -47,7 +47,6 @@ extension APIClient{
                     return
                 }
                 
-                print(value)
                 completion(.value(value))
                
             }

@@ -1,5 +1,5 @@
 //
-//  WeatherEntity+CoreDataClass.swift
+//  Temperature+CoreDataClass.swift
 //  WeatherApp
 //
 //  Created by Cece Soudaly on 12/30/17.
@@ -11,18 +11,20 @@ import Foundation
 import CoreData
 
 
-public class WeatherEntity: NSManagedObject {
+public class Temperature: NSManagedObject {
     
-    public class func fetchRequest() -> NSFetchRequest<WeatherEntity> {
-        return NSFetchRequest<WeatherEntity>(entityName: "WeatherEntity")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Temperature> {
+        return NSFetchRequest<Temperature>(entityName: "Temperature")
     }
     
+    @NSManaged public var date: String?
     @NSManaged public var day: String?
+    @NSManaged public var forecastDays:[Double]?
+    @NSManaged public var foreCastText: NSObject?
     @NSManaged public var iconURL: String?
     @NSManaged public var period: NSNumber?
     @NSManaged public var tempDescription: String?
-    @NSManaged public var forcastDays: [Double]?
-    @NSManaged public var forecastText: [Double]?
+    
     
     // Keys to convert dictionary into object
     struct Keys {
@@ -47,12 +49,12 @@ public class WeatherEntity: NSManagedObject {
         // An EntityDescription is an object that has access to all
         // the information you provided in the Entity part of the model
         // you need it to create an instance of this class.
-        if let ent = NSEntityDescription.entity(forEntityName: "WeatherEntity", in: context) {
+        if let ent = NSEntityDescription.entity(forEntityName: "Temperature", in: context) {
             self.init(entity: ent, insertInto: context)
             
-//            if(dictionary[Keys.date]  != nil ){
-//                self.date = dictionary[Keys.date] as! String
-//            }
+            if(dictionary[Keys.date]  != nil ){
+                self.date = dictionary[Keys.date] as! String
+            }
             
             //            if(dictionary[Keys.Keys.forecastDays]  != nil ){
             ////                self.forecastdays = dictionary[Keys.forecastDays] as! [Double]

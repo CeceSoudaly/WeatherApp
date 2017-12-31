@@ -26,22 +26,29 @@ class WeatherTableViewController: UITableViewController {
         
         if(resultsWeatherEntity.count > 0)
         {
-            print("blah there are data save to core data....")
-            
+            var WeatherList:[ForecastDay] = []
+           
             for saveWeather in resultsWeatherEntity {
-                 print("day...",saveWeather.day)
-                 print("iconUrl...",saveWeather.iconUrl)
-                 print("iconUrl...",saveWeather.tempDescription)
+                
+                let foreCast = ForecastDay.init(period: saveWeather.period as! Double, iconUrl: saveWeather.iconURL!, day: saveWeather.day!, description: saveWeather.tempDescription!)
+                 WeatherList.append(foreCast)
+           }
+          
+            self.cellViewModels = WeatherList.map {
+                //display
+                WeatherCellViewModel(url: $0.iconUrl, day: $0.day, description: $0.description)
             }
+           
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
             self.deleteWeather(results: resultsWeatherEntity)
         }
         else{
             weatherApi.weather(with: weatherEndpoint){ (either) in
                 switch either{
                 case .value(let forecastText):
-                    
-                    print(type(of: forecastText.forecastDays))
-                
                     //save to core data
                     self.saveToCoreData(ForecastList: forecastText)
                     self.cellViewModels = forecastText.forecastDays.map {
@@ -64,41 +71,37 @@ class WeatherTableViewController: UITableViewController {
     
     func saveToCoreData(ForecastList: ForecastText)
     {
-         print("This Works!",ForecastList)
        
-//        ForecastList.forecastDays.map {
-//
-//           let weatherDictionary: [String : AnyObject] = [
-//                   WeatherEntity.Keys.iconUrl :  $0.iconUrl   as AnyObject,
-//                   WeatherEntity.Keys.day : $0.day as String as AnyObject,
-//                   WeatherEntity.Keys.tempdescription : $0.description as String as AnyObject
-//
-//            ]
-//
-//            WeatherEntity(dictionary: weatherDictionary, context: CoreDataManager.getContext())
-//        }
-        
-        let weatherDictionary: [String : AnyObject] = [
-            WeatherEntity.Keys.forecastText :  ForecastList.forecastDays  as AnyObject
+      ForecastList.forecastDays.map {
+
+       let weatherDictionary: [String : AnyObject] = [
+               WeatherEntity.Keys.period : $0.period   as AnyObject,
+               WeatherEntity.Keys.iconUrl :  $0.iconUrl   as AnyObject,
+               WeatherEntity.Keys.day : $0.day as String as AnyObject,
+               WeatherEntity.Keys.tempdescription : $0.description as String as AnyObject
+
         ]
+            WeatherEntity(dictionary: weatherDictionary, context: CoreDataManager.getContext())
+        }
        
         do {
-             try
-                  CoreDataManager.saveContext()
+             try  CoreDataManager.saveContext()
             
         } catch {
             print("Error while trying to save : \(error)")
         }
     }
     
+    
     func fetchAllTempetures() -> [WeatherEntity] {
         var _:NSError? = nil
         var results:[WeatherEntity]!
         do{
-                //Create the fetch request
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherEntity")
-                results = try CoreDataManager.getContext().fetch(fetchRequest) as! [WeatherEntity]
-                print("results >>>",results.count);
+            //Create the fetch request and sort the order of the days
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherEntity")
+            fetchRequest.sortDescriptors = [ NSSortDescriptor( key: #keyPath(WeatherEntity.period), ascending: true) ]
+            results = try CoreDataManager.getContext().fetch(fetchRequest) as! [WeatherEntity]
+            print("results >>>",results.count);
         }
         catch{
             print("Error in fetchAllLocations")
