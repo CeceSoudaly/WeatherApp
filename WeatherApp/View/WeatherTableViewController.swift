@@ -16,7 +16,15 @@ class WeatherTableViewController: UITableViewController {
      
         super.viewDidLoad()
         let weatherApi = WeatherAPIClient()
+        
         let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: "Minneapolis", state: "MN")
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        print("Current date", date)
         
         //Check to see if we have it stored on CoreData
         //If no data we go back to get a new set of
