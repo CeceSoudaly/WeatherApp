@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PbB-8o-WSs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V1O-nj-Uu5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -57,7 +57,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATJ-Pp-pGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="412" y="104.7976011994003"/>
+            <point key="canvasLocation" x="1244" y="105"/>
         </scene>
         <!--Select City State-->
         <scene sceneID="ICy-2t-ef5">
@@ -68,44 +68,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvJ-Vd-m5K">
-                                <rect key="frame" x="0.0" y="191" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="287" width="375" height="66"/>
                                 <connections>
                                     <outlet property="dataSource" destination="PbB-8o-WSs" id="pje-dM-sNG"/>
                                     <outlet property="delegate" destination="PbB-8o-WSs" id="oxO-T2-pme"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWQ-7k-SeM">
-                                <rect key="frame" x="72" y="79" width="257" height="21"/>
+                                <rect key="frame" x="72" y="175" width="257" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9o-MR-BWL">
+                                <rect key="frame" x="114" y="459" width="146" height="30"/>
+                                <state key="normal" title="Temperature"/>
+                                <connections>
+                                    <action selector="Temperature:" destination="PbB-8o-WSs" eventType="touchDown" id="nxe-nN-5to"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vds-mZ-vbV" firstAttribute="trailing" secondItem="IWQ-7k-SeM" secondAttribute="trailing" constant="46" id="2Uf-1B-0Ze"/>
+                            <constraint firstItem="M9o-MR-BWL" firstAttribute="top" secondItem="RvJ-Vd-m5K" secondAttribute="bottom" constant="106" id="7pn-qd-qjr"/>
+                            <constraint firstItem="vds-mZ-vbV" firstAttribute="bottom" secondItem="M9o-MR-BWL" secondAttribute="bottom" constant="178" id="9jf-ty-Bcb"/>
                             <constraint firstItem="IWQ-7k-SeM" firstAttribute="top" secondItem="vds-mZ-vbV" secondAttribute="top" constant="59" id="DfV-0d-jge"/>
                             <constraint firstItem="RvJ-Vd-m5K" firstAttribute="top" secondItem="IWQ-7k-SeM" secondAttribute="bottom" constant="91" id="Nkf-1t-9nc"/>
+                            <constraint firstItem="M9o-MR-BWL" firstAttribute="leading" secondItem="vds-mZ-vbV" secondAttribute="leading" constant="114" id="Py3-MJ-cgW"/>
                             <constraint firstItem="vds-mZ-vbV" firstAttribute="bottom" secondItem="RvJ-Vd-m5K" secondAttribute="bottom" constant="314" id="Rdt-Qj-e6o"/>
                             <constraint firstItem="IWQ-7k-SeM" firstAttribute="leading" secondItem="vds-mZ-vbV" secondAttribute="leading" constant="72" id="Rtq-BH-UcG"/>
                             <constraint firstItem="RvJ-Vd-m5K" firstAttribute="trailing" secondItem="vds-mZ-vbV" secondAttribute="trailing" id="TOy-mh-yLz"/>
                             <constraint firstItem="RvJ-Vd-m5K" firstAttribute="top" secondItem="vds-mZ-vbV" secondAttribute="top" constant="171" id="fkc-Z1-T1m"/>
                             <constraint firstItem="RvJ-Vd-m5K" firstAttribute="leading" secondItem="vds-mZ-vbV" secondAttribute="leading" id="gui-ut-VOH"/>
+                            <constraint firstItem="vds-mZ-vbV" firstAttribute="trailing" secondItem="M9o-MR-BWL" secondAttribute="trailing" constant="115" id="hKe-oR-Gmu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vds-mZ-vbV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YtW-QT-59X"/>
                     <connections>
                         <outlet property="SelectedCity" destination="IWQ-7k-SeM" id="xwx-HJ-Uf8"/>
                         <outlet property="citySelectPicker" destination="RvJ-Vd-m5K" id="4eM-DF-xgU"/>
+                        <segue destination="1Bd-qu-7A5" kind="showDetail" identifier="Weather" id="Jkd-Fq-Gl9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4l-E2-Ohe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151.2" y="104.7976011994003"/>
+            <point key="canvasLocation" x="445.60000000000002" y="104.7976011994003"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DgV-sg-wrI">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybI-ue-ymf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="V1O-nj-Uu5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5mA-mk-Ky6">
@@ -114,10 +128,9 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="1Bd-qu-7A5" kind="relationship" relationship="rootViewController" id="2IG-cq-Wzf"/>
+                        <segue destination="PbB-8o-WSs" kind="relationship" relationship="rootViewController" id="9Kz-qg-ve7"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ybI-ue-ymf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-308" y="105"/>
         </scene>

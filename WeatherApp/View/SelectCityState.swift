@@ -24,6 +24,10 @@ class SelectCityState: UIViewController,UIPickerViewDataSource, UIPickerViewDele
         "SC Columbia","SD Pierre","TN Nashville", "TX Austin", "UT Salt Lake City", "VT Montpelier", "VA Richmond",
         "WA Olympia", "WV Charleston", "WI Madison","WY Cheyenne"]
     
+    var selectedCity  = "Minneapolis"
+    
+    var selectedState = "MN"
+    
     override func viewDidLoad() {
      
         super.viewDidLoad()
@@ -51,24 +55,33 @@ class SelectCityState: UIViewController,UIPickerViewDataSource, UIPickerViewDele
         var fullName: String = self.CityList[row]
         let fullNameArr = fullName.components(separatedBy: " ")
         print(fullNameArr.count)
-        let state  = fullNameArr[0]
-        print(state)
-        
+        self.selectedState  = fullNameArr[0]
         
         if(fullNameArr.count > 2)
         {
-             let city = fullNameArr[1] + " " + fullNameArr[2]
-             print(city)
-        }else{
-            
-            let city = fullNameArr[1]
-            print(city)
-        }
+             self.selectedCity = fullNameArr[1] + " " + fullNameArr[2]
  
-        
+        }else{
+            self.selectedCity = fullNameArr[1]
+     
+        }
     }
     
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Weather"{
+                 let controller = segue.destination as! WeatherTableViewController
+                controller.selectedCity = self.selectedCity
+                print(controller.selectedCity)
+            
+                controller.selectedState = self.selectedState
+                print(controller.selectedState)
+         }
+    }
     
+    @IBAction func Temperature(_ sender: Any) {
+        
+        print("what the temp")
+        performSegue(withIdentifier: "Weather", sender: view)
+    }
     
 }

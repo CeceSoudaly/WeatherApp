@@ -164,6 +164,7 @@
 		A9108F4B1FC7E11F0079ABE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A9274E751FF9B54F00F424B9 /* SelectCityState.swift */,
 				A9108F4E1FC7E1CA0079ABE1 /* WeatherTableViewController.swift */,
 			);
 			path = View;
@@ -177,7 +178,6 @@
 				A98601CF1FCCF5C0004AFA88 /* EndPoint.swift */,
 				A9013A391FD123CF0017BA5B /* WeatherAPIClient.swift */,
 				A9279FFF1FEE87F50060724B /* WeatherConstants.swift */,
-				A9274E751FF9B54F00F424B9 /* SelectCityState.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";

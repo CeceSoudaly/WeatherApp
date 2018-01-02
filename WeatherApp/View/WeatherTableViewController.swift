@@ -11,13 +11,15 @@ import CoreData
 
 class WeatherTableViewController: UITableViewController {
     var cellViewModels = [WeatherCellViewModel]()
+    var selectedCity  = "Minneapolis"
+    var selectedState = "MN"
     
     override func viewDidLoad() {
      
         super.viewDidLoad()
         let weatherApi = WeatherAPIClient()
         
-        let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: "Minneapolis", state: "MN")
+        let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: selectedCity, state: selectedState)
         
         let date = Date()
         let calendar = Calendar.current
