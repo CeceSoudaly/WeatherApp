@@ -50,25 +50,6 @@ public class WeatherEntity: NSManagedObject {
         if let ent = NSEntityDescription.entity(forEntityName: "WeatherEntity", in: context) {
             self.init(entity: ent, insertInto: context)
             
-//            if(dictionary[Keys.date]  != nil ){
-//                self.date = dictionary[Keys.date] as! String
-//            }
-            
-            //            if(dictionary[Keys.Keys.forecastDays]  != nil ){
-            ////                self.forecastdays = dictionary[Keys.forecastDays] as! [Double]
-            //
-            //                var Weather1:AnyObject?
-            //                var WeatherList:[AnyObject] = []
-            //
-            //                if let Weather_from = dictionary[Keys.forecastDays] as? AnyObject {
-            //                    Weather1 = Weather_from
-            //                    WeatherList.append(Weather1!)
-            //                } else {
-            //                    WeatherList.append("Weather Object Not Available" as AnyObject)
-            //                }
-            //            }
-            
-            
             if(dictionary[Keys.period]  != nil ){
                 self.period = dictionary[Keys.period] as! NSNumber
             }

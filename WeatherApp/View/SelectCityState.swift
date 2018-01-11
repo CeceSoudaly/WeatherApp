@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import GoogleMaps
+
 
 
 class SelectCityState: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
@@ -16,6 +18,8 @@ class SelectCityState: UIViewController,UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var citySelectPicker: UIPickerView!
     
     @IBOutlet weak var SelectedCity: UILabel!
+    
+    var googleMapView: GMSMapView!
     
     var CityList = [ "AL Montgomery","AK Juneau","AZ Phoenix","AR Little Rock","CA Sacramento","CA San Francisco","CA Los Angeles","CO Denver","CT Hartford", "DE Dover", "FL Tallahassee","FL Miami","FL Orlando","GA Atlanta","HI Honolulu","ID Boise","IL Springfield","IN Indianapolis","IA Des Moines","KS Topeka","KY Frankfort",
         "LA Baton Rouge","ME Augusta","MD Annapolis","MA Boston","MI Lansing", "MN Saint Paul", "MS Jackson",
@@ -34,6 +38,14 @@ class SelectCityState: UIViewController,UIPickerViewDataSource, UIPickerViewDele
        
         citySelectPicker.delegate = self
         citySelectPicker.dataSource = self
+        
+        //AIzaSyCi9T8T4PbvlfIPZVQK3StCBXOneDBK4OY
+        // var urlString = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(searchString)&sensor=true&key=\(Google_Browser_Key)"
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
     }
     
@@ -80,7 +92,6 @@ class SelectCityState: UIViewController,UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func Temperature(_ sender: Any) {
         
-        print("what the temp")
         performSegue(withIdentifier: "Weather", sender: view)
     }
     

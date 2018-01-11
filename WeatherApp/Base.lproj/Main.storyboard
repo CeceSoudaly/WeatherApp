@@ -59,6 +59,45 @@
             </objects>
             <point key="canvasLocation" x="1244" y="105"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xlj-bC-MoZ">
+            <objects>
+                <navigationController id="Rwa-wf-h83" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cKe-aI-vYf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eYl-f2-Ykx" kind="relationship" relationship="rootViewController" id="A7l-Cm-Wov"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wpX-u7-5pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2010" y="105"/>
+        </scene>
+        <!--Address-->
+        <scene sceneID="6F5-eR-vl9">
+            <objects>
+                <viewController id="eYl-f2-Ykx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3SU-bP-ZmM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1HN-dz-JZm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Address" id="iMS-L3-vDv">
+                        <barButtonItem key="rightBarButtonItem" title="search" id="KFi-Se-Sbo">
+                            <connections>
+                                <action selector="beginSearch:" destination="XmZ-Ym-zFB" id="y8G-GL-qq2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qwz-dj-v5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XmZ-Ym-zFB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2798" y="105"/>
+        </scene>
         <!--Select City State-->
         <scene sceneID="ICy-2t-ef5">
             <objects>
@@ -119,7 +158,6 @@
         <!--Navigation Controller-->
         <scene sceneID="DgV-sg-wrI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ybI-ue-ymf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="V1O-nj-Uu5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5mA-mk-Ky6">
@@ -131,6 +169,7 @@
                         <segue destination="PbB-8o-WSs" kind="relationship" relationship="rootViewController" id="9Kz-qg-ve7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybI-ue-ymf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-308" y="105"/>
         </scene>

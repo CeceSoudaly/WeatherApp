@@ -13,7 +13,6 @@ class WeatherAPIClient: APIClient {
     
     init(session: URLSession = URLSession.shared){
         self.session = session
-        
     }
     
     //Making a request call to weather api 
