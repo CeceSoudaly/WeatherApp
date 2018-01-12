@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V1O-nj-Uu5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rwa-wf-h83">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -78,7 +78,7 @@
         <!--Address-->
         <scene sceneID="6F5-eR-vl9">
             <objects>
-                <viewController id="eYl-f2-Ykx" sceneMemberID="viewController">
+                <viewController id="eYl-f2-Ykx" customClass="AutoCompleteCity" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3SU-bP-ZmM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,17 +86,16 @@
                         <viewLayoutGuide key="safeArea" id="1HN-dz-JZm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Address" id="iMS-L3-vDv">
-                        <barButtonItem key="rightBarButtonItem" title="search" id="KFi-Se-Sbo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="KFi-Se-Sbo">
                             <connections>
-                                <action selector="beginSearch:" destination="XmZ-Ym-zFB" id="y8G-GL-qq2"/>
+                                <action selector="searchCity:" destination="eYl-f2-Ykx" id="SvT-Ad-8zD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwz-dj-v5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="XmZ-Ym-zFB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2798" y="105"/>
+            <point key="canvasLocation" x="2797.5999999999999" y="104.7976011994003"/>
         </scene>
         <!--Select City State-->
         <scene sceneID="ICy-2t-ef5">
