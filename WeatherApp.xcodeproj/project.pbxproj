@@ -20,6 +20,7 @@
 		A9274E761FF9B54F00F424B9 /* SelectCityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9274E751FF9B54F00F424B9 /* SelectCityState.swift */; };
 		A927A0001FEE87F50060724B /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9279FFF1FEE87F50060724B /* WeatherConstants.swift */; };
 		A9289C931FEB5F2C00F178B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */; };
+		A9290FF1200EE1E700443D42 /* CityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9290FF0200EE1E700443D42 /* CityEntity.swift */; };
 		A930A0701FF8A384000B8F53 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A930A06E1FF8A384000B8F53 /* Temperature.swift */; };
 		A9320F7820070AF30092A236 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320F7720070AF30092A236 /* SearchResultsController.swift */; };
 		A9437F511FC9253200D5E36B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9437F501FC9253200D5E36B /* Weather.swift */; };
@@ -68,6 +69,7 @@
 		A9274E751FF9B54F00F424B9 /* SelectCityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityState.swift; sourceTree = "<group>"; };
 		A9279FFF1FEE87F50060724B /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
 		A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A9290FF0200EE1E700443D42 /* CityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityEntity.swift; path = /Users/cecesoudaly/Desktop/WeatherApp/WeatherApp/WeatherApp/Model/CityEntity.swift; sourceTree = "<absolute>"; };
 		A930A06E1FF8A384000B8F53 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		A9320F7720070AF30092A236 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		A9437F501FC9253200D5E36B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = /Users/cecesoudaly/Desktop/WeatherApp/WeatherApp/WeatherApp/API/Weather.swift; sourceTree = "<absolute>"; };
@@ -172,6 +174,7 @@
 		A9108F471FC7DD0A0079ABE1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9290FF0200EE1E700443D42 /* CityEntity.swift */,
 				A9BC60711FF8A6F3003A9A05 /* WeatherEntity.swift */,
 				A930A06E1FF8A384000B8F53 /* Temperature.swift */,
 				A9667DE01FDCF62200CE80C3 /* WeatherCellViewModel.swift */,
@@ -409,6 +412,7 @@
 				A9437F511FC9253200D5E36B /* Weather.swift in Sources */,
 				A9BC60731FF8A6F3003A9A05 /* WeatherEntity.swift in Sources */,
 				A9108F1A1FC7DBF00079ABE1 /* AppDelegate.swift in Sources */,
+				A9290FF1200EE1E700443D42 /* CityEntity.swift in Sources */,
 				A9274E761FF9B54F00F424B9 /* SelectCityState.swift in Sources */,
 				A9BC60701FF8A5F0003A9A05 /* ModelA.xcdatamodeld in Sources */,
 				A930A0701FF8A384000B8F53 /* Temperature.swift in Sources */,

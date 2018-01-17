@@ -19,9 +19,10 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
     var listOfCities = ["BMW","Audi", "Volkswagen"]
-
-
-    @IBOutlet weak var tableView: UITableView!
+    var selectedCity = "NothingHill"
+    
+    
+    weak var tableView: UITableView!
     
     
     
@@ -32,6 +33,10 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
         print("viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
+        
+        //load core data
+        
+        
         tableView.reloadData()
 
 
@@ -70,6 +75,37 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
         self.present(searchControllerDef, animated:true, completion: nil)
     }
     
+    func saveToCoreData(selectedCity: String)
+    {
+        let selectedCityDictionary: [String : AnyObject] = [
+            CityEntity.Keys.cityText: selectedCity  as String as AnyObject
+        ]
+        
+        CityEntity(dictionary: selectedCityDictionary , context: CoreDataManager.getContext())
+        
+        
+        do {
+            try  CoreDataManager.saveContext()
+            
+        } catch {
+            print("Error while trying to save the Selected City: \(error)")
+        }
+    }
+    
+    func fetchAllCity() -> [CityEntity] {
+        var error:NSError? = nil
+        var results:[CityEntity]!
+        do{
+            //Create the fetch request
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CityEntity")
+            results = try CoreDataManager.getContext().fetch(fetchRequest) as! [CityEntity]
+        }
+        catch{
+            print("Error in fetchAllCity")
+        }
+        return results
+    }
+    
     func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
         //  <#code#>
     }
@@ -104,13 +140,15 @@ extension  ControllerView: GMSAutocompleteResultsViewControllerDelegate {
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
-         dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+        
+        //add to coredata
+        saveToCoreData(selectedCity: place.formattedAddress!)
         
         listOfCities.append(place.formattedAddress!)
         
         tableView.reloadData()
-        
-     
+       
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
