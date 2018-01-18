@@ -19,6 +19,8 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
     var resultsCityArray = [CityEntity]()
+    var selectedCity  = "Minneapolis"
+    var selectedState = "MN"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -45,13 +47,12 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-             print("resultsCityArray.count",resultsCityArray.count)
         //currently only a testing number
         return resultsCityArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        print("cellForRowAt",resultsCityArray.count)
+      
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "temperatureCell")
         let city = resultsCityArray[indexPath.row]
         //let cellVievData = city.selectCity
@@ -63,8 +64,43 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog("You selected cell number: \(indexPath.row)!")
         NSLog("what did you select : \(resultsCityArray[indexPath.row])!")
-       // self.performSegueWithIdentifier("yourIdentifier", sender: self)
+      
+ 
+        let city = resultsCityArray[indexPath.row]
+        var fullName: String = city.selectCity!
+        let fullNameArr = fullName.components(separatedBy: ", ")
+        print(fullNameArr.count)
+        self.selectedState  = fullNameArr[1]
+        
+         print("You selected State: \( self.selectedState )!")
+        
+        if(fullNameArr.count > 2)
+        {
+            self.selectedCity = fullNameArr[0] + " " + fullNameArr[2]
+            
+             print("You selected city: \( self.selectedCity )!")
+            
+        }else{
+            self.selectedCity = fullNameArr[0]
+             print("You selected city: \( self.selectedCity )!")
+            
+        }
+        
+        //Get the temperature for the selected city and state.
+        self.performSegue(withIdentifier: "TempDetail", sender: self)
     }
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TempDetail"{
+            let controller = segue.destination as! WeatherTableViewController
+            controller.selectedCity = self.selectedCity
+            print(controller.selectedCity)
+            
+            controller.selectedState = self.selectedState
+            print(controller.selectedState)
+        }
+    }
+    
     
     @IBAction func selectLocation(_ sender: Any) {
         
@@ -98,7 +134,6 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     
     func  deleteFromCoreData(selectedCities: [CityEntity])
     {
-       
         
         do {
             var _:NSError? = nil
@@ -109,7 +144,7 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
             for objectDelete in results {
                     CoreDataManager.getContext().delete(objectDelete)
                     CoreDataManager.saveContext()
-//                    break
+                    break
             }
             
         } catch {
