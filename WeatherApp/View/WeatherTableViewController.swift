@@ -137,7 +137,7 @@ class WeatherTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WheatherCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TempCel", for: indexPath)
 
         // Configure the cell...
         let cellViewModel = cellViewModels[indexPath.row]
