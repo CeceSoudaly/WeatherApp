@@ -21,7 +21,7 @@ public class CityEntity: NSManagedObject {
     // Keys to convert dictionary into object
     struct Keys {
         
-        static let cityText = "selectedCity"
+        static let selectedCity = "selectedCity"
         
     }
     
@@ -39,8 +39,8 @@ public class CityEntity: NSManagedObject {
         if let ent = NSEntityDescription.entity(forEntityName: "CityEntity", in: context) {
             self.init(entity: ent, insertInto: context)
             
-            if(dictionary[Keys.cityText]  != nil ){
-                self.selectCity = dictionary[Keys.cityText] as! String
+            if(dictionary[Keys.selectedCity]  != nil ){
+                self.selectCity = dictionary[Keys.selectedCity] as! String
             }
             
             

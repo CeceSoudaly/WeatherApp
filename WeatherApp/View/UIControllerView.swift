@@ -18,12 +18,9 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     var searchController: UISearchController?
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
-    var listOfCities = ["BMW","Audi", "Volkswagen"]
-    var selectedCity = "NothingHill"
+    var resultsCityArray = [CityEntity]()
     
-    
-    weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableView: UITableView!
     
     
     override func viewDidLoad() {
@@ -35,30 +32,37 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
         tableView.delegate = self
         
         //load core data
+        resultsCityArray = self.fetchAllCity();
+        if(resultsCityArray.count > 5)
+        {
+            self.deleteFromCoreData(selectedCities: resultsCityArray)
+        }
         
-        
-        tableView.reloadData()
-
+         DispatchQueue.main.async()  {
+             self.tableView.reloadData()
+        }
 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-             print("listOfCities.count",listOfCities.count)
+             print("resultsCityArray.count",resultsCityArray.count)
         //currently only a testing number
-        return listOfCities.count
+        return resultsCityArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        print("cellForRowAt",listOfCities.count)
+        print("cellForRowAt",resultsCityArray.count)
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "temperatureCell")
-        let cellVievData = listOfCities[indexPath.row]
-        cell.textLabel?.text = cellVievData.description
+        let city = resultsCityArray[indexPath.row]
+        //let cellVievData = city.selectCity
+        cell.textLabel?.text = city.selectCity
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog("You selected cell number: \(indexPath.row)!")
-        NSLog("what did you select : \(listOfCities[indexPath.row])!")
+        NSLog("what did you select : \(resultsCityArray[indexPath.row])!")
        // self.performSegueWithIdentifier("yourIdentifier", sender: self)
     }
     
@@ -78,20 +82,41 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     func saveToCoreData(selectedCity: String)
     {
         let selectedCityDictionary: [String : AnyObject] = [
-            CityEntity.Keys.cityText: selectedCity  as String as AnyObject
+            CityEntity.Keys.selectedCity: selectedCity  as String as AnyObject
         ]
-        
+
         CityEntity(dictionary: selectedCityDictionary , context: CoreDataManager.getContext())
-        
-        
+
+
         do {
             try  CoreDataManager.saveContext()
-            
+
         } catch {
             print("Error while trying to save the Selected City: \(error)")
         }
     }
     
+    func  deleteFromCoreData(selectedCities: [CityEntity])
+    {
+       
+        
+        do {
+            var _:NSError? = nil
+            
+            var results:[CityEntity]!
+            results = self.fetchAllCity();
+            
+            for objectDelete in results {
+                    CoreDataManager.getContext().delete(objectDelete)
+                    CoreDataManager.saveContext()
+//                    break
+            }
+            
+        } catch {
+            print("Error while trying to delete the Selected City: \(error)")
+        }
+    }
+
     func fetchAllCity() -> [CityEntity] {
         var error:NSError? = nil
         var results:[CityEntity]!
@@ -142,13 +167,18 @@ extension  ControllerView: GMSAutocompleteResultsViewControllerDelegate {
         print("Place attributions: \(place.attributions)")
         dismiss(animated: true, completion: nil)
         
-        //add to coredata
+        //Save select city to core data, convert selected city string to entity and append to the array
         saveToCoreData(selectedCity: place.formattedAddress!)
-        
-        listOfCities.append(place.formattedAddress!)
-        
-        tableView.reloadData()
-       
+     
+        let newCityEntity = CityEntity(context: CoreDataManager.getContext())
+        newCityEntity.selectCity = place.formattedAddress!
+        resultsCityArray.append(newCityEntity)
+   
+        self.tableView.beginUpdates()
+
+        tableView.insertRows(at: [IndexPath(row: resultsCityArray.count - 1 , section: 0)], with: .automatic)
+        self.tableView.endUpdates()
+
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

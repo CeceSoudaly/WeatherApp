@@ -69,7 +69,7 @@
 		A9274E751FF9B54F00F424B9 /* SelectCityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityState.swift; sourceTree = "<group>"; };
 		A9279FFF1FEE87F50060724B /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
 		A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		A9290FF0200EE1E700443D42 /* CityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityEntity.swift; path = /Users/cecesoudaly/Desktop/WeatherApp/WeatherApp/WeatherApp/Model/CityEntity.swift; sourceTree = "<absolute>"; };
+		A9290FF0200EE1E700443D42 /* CityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEntity.swift; sourceTree = "<group>"; };
 		A930A06E1FF8A384000B8F53 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		A9320F7720070AF30092A236 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		A9437F501FC9253200D5E36B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = /Users/cecesoudaly/Desktop/WeatherApp/WeatherApp/WeatherApp/API/Weather.swift; sourceTree = "<absolute>"; };
