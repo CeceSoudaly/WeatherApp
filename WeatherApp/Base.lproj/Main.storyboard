@@ -52,9 +52,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="T18-ht-9rl" kind="showDetail" identifier="TempDetail" id="2XJ-9Z-tzm"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -80,13 +77,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CnB-UE-nRm" id="bLE-yl-m05"/>
+                        <segue destination="ObV-f6-5iv" kind="showDetail" identifier="TempDetail" id="Zez-35-Iil"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwz-dj-v5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3585" y="154"/>
         </scene>
-        <!--Weather Table View Controller-->
+        <!--WeatherDetails-->
         <scene sceneID="qgV-be-krN">
             <objects>
                 <tableViewController id="T18-ht-9rl" customClass="WeatherTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,10 +127,27 @@
                             <outlet property="delegate" destination="T18-ht-9rl" id="1iv-ID-cbi"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="WeatherDetails" id="9kS-oU-9a5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tD-yd-G1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2814" y="153"/>
+            <point key="canvasLocation" x="-2113" y="153"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tnD-N2-1KJ">
+            <objects>
+                <navigationController storyboardIdentifier="WeatherController" id="ObV-f6-5iv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3bu-2a-p81">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="T18-ht-9rl" kind="relationship" relationship="rootViewController" id="loV-CQ-T3V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cax-bN-c3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2830" y="153"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NVi-Z3-nAz">

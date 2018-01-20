@@ -17,6 +17,8 @@ class WeatherTableViewController: UITableViewController {
     override func viewDidLoad() {
      
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.backItem?.title = "back"
         let weatherApi = WeatherAPIClient()
         
         let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: selectedCity, state: selectedState)

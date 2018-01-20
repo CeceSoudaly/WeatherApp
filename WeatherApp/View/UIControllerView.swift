@@ -32,6 +32,7 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
         print("viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
+      
         
         //load core data
         resultsCityArray = self.fetchAllCity();
@@ -92,12 +93,14 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TempDetail"{
-            let controller = segue.destination as! WeatherTableViewController
-            controller.selectedCity = self.selectedCity
-            print(controller.selectedCity)
-            
-            controller.selectedState = self.selectedState
-            print(controller.selectedState)
+        
+            if let controller = segue.destination.childViewControllers[0] as? WeatherTableViewController {
+                    controller.selectedCity = self.selectedCity
+                    print(controller.selectedCity)
+        
+                    controller.selectedState = self.selectedState
+                    print(controller.selectedState)
+            }
         }
     }
     
