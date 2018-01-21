@@ -18,7 +18,16 @@ class WeatherTableViewController: UITableViewController {
      
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.backItem?.title = "back"
+        //set navigation button
+//        self.tabBarController?.navigationItem.title = "Notes"
+//
+//        let sendButton = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(goToNoteEditorViewController))
+//
+//        self.tabBarController?.navigationItem.rightBarButtonItem = sendButton
+//        navigationController?.isNavigationBarHidden = false
+        
+    
+        
         let weatherApi = WeatherAPIClient()
         
         let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: selectedCity, state: selectedState)
@@ -80,6 +89,12 @@ class WeatherTableViewController: UITableViewController {
         }
        
     }
+    
+//    func goBack()
+//    {
+//        self.navigationController?.popViewController(animated: true)
+//    }
+
     
     func saveToCoreData(ForecastList: ForecastText)
     {

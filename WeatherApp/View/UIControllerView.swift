@@ -12,7 +12,7 @@ import GooglePlaces
 import CoreData
 
 
-class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, LocateOnTheMap,GMSAutocompleteFetcherDelegate
+class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, LocateOnTheMap,GMSAutocompleteFetcherDelegate
 {
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -46,7 +46,7 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
         }
 
     }
-    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //currently only a testing number
         return resultsCityArray.count
@@ -74,18 +74,20 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
         self.selectedState  = fullNameArr[1]
         
          print("You selected State: \( self.selectedState )!")
+        self.selectedCity = fullNameArr[0]
+        print("You selected city: \( self.selectedCity )!")
         
-        if(fullNameArr.count > 2)
-        {
-            self.selectedCity = fullNameArr[0] + " " + fullNameArr[2]
-            
-             print("You selected city: \( self.selectedCity )!")
-            
-        }else{
-            self.selectedCity = fullNameArr[0]
-             print("You selected city: \( self.selectedCity )!")
-            
-        }
+//        if(fullNameArr.count > 2)
+//        {
+//           // self.selectedCity = fullNameArr[0] + " " + fullNameArr[2]
+//            self.selectedCity = fullNameArr[0]
+//            print("You selected city: \( self.selectedCity )!")
+//
+//        }else{
+//            self.selectedCity = fullNameArr[0]
+//             print("You selected city: \( self.selectedCity )!")
+//
+//        }
         
         //Get the temperature for the selected city and state.
         self.performSegue(withIdentifier: "TempDetail", sender: self)
@@ -107,7 +109,7 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
     
     @IBAction func selectLocation(_ sender: Any) {
         
-        print("Blah Blah Seach City")
+        print("Seach City")
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
         let searchControllerDef = UISearchController(searchResultsController: resultsViewController)
@@ -194,7 +196,7 @@ class  ControllerView:  UIViewController,UITableViewDataSource, UITableViewDeleg
 }
 
 // Handle the user's selection.
-extension  ControllerView: GMSAutocompleteResultsViewControllerDelegate {
+extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
