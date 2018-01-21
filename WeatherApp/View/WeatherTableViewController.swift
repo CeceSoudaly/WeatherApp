@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WeatherTableViewController: UITableViewController {
+class WeatherTableViewController: UITableViewController , UINavigationControllerDelegate {
     var cellViewModels = [WeatherCellViewModel]()
     var selectedCity  = "Minneapolis"
     var selectedState = "MN"
@@ -17,15 +17,11 @@ class WeatherTableViewController: UITableViewController {
     override func viewDidLoad() {
      
         super.viewDidLoad()
-        
-        //set navigation button
-//        self.tabBarController?.navigationItem.title = "Notes"
-//
-//        let sendButton = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(goToNoteEditorViewController))
-//
-//        self.tabBarController?.navigationItem.rightBarButtonItem = sendButton
-//        navigationController?.isNavigationBarHidden = false
-        
+        self.navigationController?.delegate = self as! UINavigationControllerDelegate
+
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(WeatherTableViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
     
         
         let weatherApi = WeatherAPIClient()
@@ -90,11 +86,24 @@ class WeatherTableViewController: UITableViewController {
        
     }
     
-//    func goBack()
-//    {
-//        self.navigationController?.popViewController(animated: true)
-//    }
+    
+    @objc func back(sender: UIBarButtonItem) {
+       
+        if let navController = self.navigationController {
+            //navController.popViewController(animated: true)
+            self.dismiss(animated: true) {
+                _ = self.navigationController?.navigationController?.popViewController(animated: true)
+            }
+        
+        }
+    }
 
+    @IBAction func done(_ sender: Any) {
+        
+        // Go back to the previous ViewController
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     func saveToCoreData(ForecastList: ForecastText)
     {

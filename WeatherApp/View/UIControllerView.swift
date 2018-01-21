@@ -36,10 +36,10 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         
         //load core data
         resultsCityArray = self.fetchAllCity();
-        if(resultsCityArray.count > 5)
-        {
-            self.deleteFromCoreData(selectedCities: resultsCityArray)
-        }
+        //if(resultsCityArray.count > 5)
+        //{
+//            self.deleteFromCoreData(selectedCities: resultsCityArray)
+       // }
         
          DispatchQueue.main.async()  {
              self.tableView.reloadData()
@@ -63,8 +63,8 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("You selected cell number: \(indexPath.row)!")
-        NSLog("what did you select : \(resultsCityArray[indexPath.row])!")
+        NSLog("You selected cell number: \(indexPath.row)")
+        NSLog("what did you select : \(resultsCityArray[indexPath.row])")
       
  
         let city = resultsCityArray[indexPath.row]
@@ -73,21 +73,9 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         print(fullNameArr.count)
         self.selectedState  = fullNameArr[1]
         
-         print("You selected State: \( self.selectedState )!")
+         print("You selected State: \( self.selectedState )")
         self.selectedCity = fullNameArr[0]
-        print("You selected city: \( self.selectedCity )!")
-        
-//        if(fullNameArr.count > 2)
-//        {
-//           // self.selectedCity = fullNameArr[0] + " " + fullNameArr[2]
-//            self.selectedCity = fullNameArr[0]
-//            print("You selected city: \( self.selectedCity )!")
-//
-//        }else{
-//            self.selectedCity = fullNameArr[0]
-//             print("You selected city: \( self.selectedCity )!")
-//
-//        }
+        print("You selected city: \( self.selectedCity )")
         
         //Get the temperature for the selected city and state.
         self.performSegue(withIdentifier: "TempDetail", sender: self)
@@ -149,7 +137,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
             for objectDelete in results {
                     CoreDataManager.getContext().delete(objectDelete)
                     CoreDataManager.saveContext()
-                    break
+                //    break
             }
             
         } catch {
@@ -206,9 +194,6 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
         print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
         dismiss(animated: true, completion: nil)
-        
-        //Save select city to core data, convert selected city string to entity and append to the array
-        saveToCoreData(selectedCity: place.formattedAddress!)
      
         let newCityEntity = CityEntity(context: CoreDataManager.getContext())
         newCityEntity.selectCity = place.formattedAddress!
@@ -218,6 +203,9 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
 
         tableView.insertRows(at: [IndexPath(row: resultsCityArray.count - 1 , section: 0)], with: .automatic)
         self.tableView.endUpdates()
+        
+        //Save select city to core data, convert selected city string to entity and append to the array
+        saveToCoreData(selectedCity: place.formattedAddress!)
 
     }
     

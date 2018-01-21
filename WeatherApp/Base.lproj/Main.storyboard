@@ -77,7 +77,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CnB-UE-nRm" id="bLE-yl-m05"/>
-                        <segue destination="ObV-f6-5iv" kind="showDetail" identifier="TempDetail" id="yU0-h0-eUd"/>
+                        <segue destination="ObV-f6-5iv" kind="showDetail" identifier="TempDetail" id="m7E-LZ-oxA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwz-dj-v5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,9 +127,7 @@
                             <outlet property="delegate" destination="T18-ht-9rl" id="ZVh-qQ-1WC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="WeatherDetails" id="9kS-oU-9a5">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="aeH-Qz-gcb"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="WeatherDetails" id="9kS-oU-9a5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tD-yd-G1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
