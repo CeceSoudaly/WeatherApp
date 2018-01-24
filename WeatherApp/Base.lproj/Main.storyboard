@@ -127,7 +127,9 @@
                             <outlet property="delegate" destination="T18-ht-9rl" id="ZVh-qQ-1WC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="WeatherDetails" id="9kS-oU-9a5"/>
+                    <navigationItem key="navigationItem" title="WeatherDetails" id="9kS-oU-9a5">
+                        <barButtonItem key="backBarButtonItem" title="ABC" id="Q0S-vO-fMb"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tD-yd-G1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

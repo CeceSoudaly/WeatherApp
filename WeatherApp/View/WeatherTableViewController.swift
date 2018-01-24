@@ -20,11 +20,14 @@ class WeatherTableViewController: UITableViewController , UINavigationController
         self.navigationController?.delegate = self as! UINavigationControllerDelegate
 
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(WeatherTableViewController.back(sender:)))
+        let newBackButton = UIBarButtonItem(image: UIImage(named: "back-button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(WeatherTableViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     
         
         let weatherApi = WeatherAPIClient()
+        
+        print(selectedCity)
+        print(selectedState)
         
         let weatherEndpoint = WeatherEndpoint.tenDayForecast(city: selectedCity, state: selectedState)
         
@@ -88,7 +91,11 @@ class WeatherTableViewController: UITableViewController , UINavigationController
     
     
     @objc func back(sender: UIBarButtonItem) {
-       
+        // Perform your custom actions
+        // ...
+        // Go back to the previous ViewController
+//        _ = navigationController?.popViewController(animated: true)
+        
         if let navController = self.navigationController {
             //navController.popViewController(animated: true)
             self.dismiss(animated: true) {

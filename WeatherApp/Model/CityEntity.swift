@@ -11,6 +11,7 @@ import CoreData
 
 
 public class CityEntity: NSManagedObject {
+    
     public class func fetchRequest() -> NSFetchRequest<CityEntity> {
         return NSFetchRequest<CityEntity>(entityName: "CityEntity")
     }

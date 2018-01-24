@@ -36,10 +36,12 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         
         //load core data
         resultsCityArray = self.fetchAllCity();
-        //if(resultsCityArray.count > 5)
-        //{
-//            self.deleteFromCoreData(selectedCities: resultsCityArray)
-       // }
+        
+         print("You have fetch coredata ",resultsCityArray.count)
+        if(resultsCityArray.count > 5)
+        {
+            self.deleteFromCoreData(selectedCities: resultsCityArray)
+        }
         
          DispatchQueue.main.async()  {
              self.tableView.reloadData()
@@ -108,14 +110,13 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         self.present(searchControllerDef, animated:true, completion: nil)
     }
     
-    func saveToCoreData(selectedCity: String)
+    func saveToCoreData(selectedCity: String, cityEntity: CityEntity)
     {
-        let selectedCityDictionary: [String : AnyObject] = [
-            CityEntity.Keys.selectedCity: selectedCity  as String as AnyObject
-        ]
-
-        CityEntity(dictionary: selectedCityDictionary , context: CoreDataManager.getContext())
-
+//        let selectedCityDictionary: [String : AnyObject] = [
+//            CityEntity.Keys.selectedCity: selectedCity  as String as AnyObject
+//        ]
+//
+//        CityEntity(dictionary: selectedCityDictionary , context: CoreDataManager.getContext())
 
         do {
             try  CoreDataManager.saveContext()
@@ -152,6 +153,8 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
             //Create the fetch request
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CityEntity")
             results = try CoreDataManager.getContext().fetch(fetchRequest) as! [CityEntity]
+            
+            print("how many were stored in cordata? ",results.count)
         }
         catch{
             print("Error in fetchAllCity")
@@ -195,18 +198,19 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
         print("Place attributions: \(place.attributions)")
         dismiss(animated: true, completion: nil)
      
+        //creating  a new instance of CityEntity
         let newCityEntity = CityEntity(context: CoreDataManager.getContext())
+        
+        //Save select city to core data, convert selected city string to entity and append to the array
+        saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
+        
         newCityEntity.selectCity = place.formattedAddress!
         resultsCityArray.append(newCityEntity)
-   
         self.tableView.beginUpdates()
 
         tableView.insertRows(at: [IndexPath(row: resultsCityArray.count - 1 , section: 0)], with: .automatic)
         self.tableView.endUpdates()
-        
-        //Save select city to core data, convert selected city string to entity and append to the array
-        saveToCoreData(selectedCity: place.formattedAddress!)
-
+  
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
