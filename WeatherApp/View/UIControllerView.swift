@@ -21,6 +21,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     var resultsCityArray = [CityEntity]()
     var selectedCity  = "Minneapolis"
     var selectedState = "MN"
+    //var selectedIndexPaths = [NSIndexPath]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,10 +38,14 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         //load core data
         resultsCityArray = self.fetchAllCity();
         
-         print("You have fetch coredata ",resultsCityArray.count)
+        
+        print("You have fetch coredata ",resultsCityArray.count)
+        
         if(resultsCityArray.count > 5)
         {
             self.deleteFromCoreData(selectedCities: resultsCityArray)
+            resultsCityArray.removeAll()
+            
         }
         
          DispatchQueue.main.async()  {
@@ -96,6 +101,43 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.delete{
+            
+            NSLog("what do you want to delete : \(resultsCityArray[indexPath.row])")
+            NSLog("number of rows : \(resultsCityArray.count)")
+           
+            if resultsCityArray.count > 0 {
+                for cityDelete in resultsCityArray {
+                    let index: Int = (self.resultsCityArray as NSArray).index(of: cityDelete)
+                    self.resultsCityArray.remove(at: index)
+                    CoreDataManager.getContext().delete(cityDelete)
+                    print("city at row \(indexPath.row) deleted")
+                    
+                }
+                CoreDataManager.saveContext()
+            }
+        }
+    }
+    
+    func removeSelectedCity(didSelectRowAt indexPath: CityEntity) {
+        
+//        if selectedIndexPaths.count > 0 {
+//            for indexPath in selectedIndexPaths {
+//
+//                let city = resultsCityArray[indexPath.row]
+//                CoreDataManager.getContext().delete(city)
+//                self.resultsCityArray.remove(at: indexPath.row)
+////                self.photoCollectionView.deleteItems(at: [indexPath as IndexPath])
+//                print("city at row \(indexPath.row) deleted")
+//
+//            }
+//            CoreDataManager.saveContext()
+//        }
+//        selectedIndexPaths = [NSIndexPath]()
+    }
+    
     
     @IBAction func selectLocation(_ sender: Any) {
         
@@ -112,12 +154,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     
     func saveToCoreData(selectedCity: String, cityEntity: CityEntity)
     {
-//        let selectedCityDictionary: [String : AnyObject] = [
-//            CityEntity.Keys.selectedCity: selectedCity  as String as AnyObject
-//        ]
-//
-//        CityEntity(dictionary: selectedCityDictionary , context: CoreDataManager.getContext())
-
+        //note: only create 1 instance of enity per record
         do {
             try  CoreDataManager.saveContext()
 
