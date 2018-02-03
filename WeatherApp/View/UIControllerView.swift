@@ -105,37 +105,23 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         
         if editingStyle == UITableViewCellEditingStyle.delete{
             
-            NSLog("what do you want to delete : \(resultsCityArray[indexPath.row])")
-            NSLog("number of rows : \(resultsCityArray.count)")
-           
             if resultsCityArray.count > 0 {
                 for cityDelete in resultsCityArray {
-                    let index: Int = (self.resultsCityArray as NSArray).index(of: cityDelete)
-                    self.resultsCityArray.remove(at: index)
-                    CoreDataManager.getContext().delete(cityDelete)
-                    print("city at row \(indexPath.row) deleted")
+                    //loop through to get the selected city and remove it.
+                    if( cityDelete == resultsCityArray[indexPath.row])
+                    {
+                        let index: Int = (self.resultsCityArray as NSArray).index(of: cityDelete)
+                        self.resultsCityArray.remove(at: index)
+                        CoreDataManager.getContext().delete(cityDelete)
+                        break
+                    }
                     
                 }
                 CoreDataManager.saveContext()
             }
         }
-    }
-    
-    func removeSelectedCity(didSelectRowAt indexPath: CityEntity) {
         
-//        if selectedIndexPaths.count > 0 {
-//            for indexPath in selectedIndexPaths {
-//
-//                let city = resultsCityArray[indexPath.row]
-//                CoreDataManager.getContext().delete(city)
-//                self.resultsCityArray.remove(at: indexPath.row)
-////                self.photoCollectionView.deleteItems(at: [indexPath as IndexPath])
-//                print("city at row \(indexPath.row) deleted")
-//
-//            }
-//            CoreDataManager.saveContext()
-//        }
-//        selectedIndexPaths = [NSIndexPath]()
+        self.tableView.reloadData()
     }
     
     
