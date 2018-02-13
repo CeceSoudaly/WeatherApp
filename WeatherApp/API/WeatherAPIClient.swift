@@ -22,17 +22,18 @@ class WeatherAPIClient: APIClient {
         //load data from API calls
         self.fetch(with: request){ (either: Either<Weather, APIError>)in
             switch either{
-        
+
             case .value(let weather):
                 let textForecast = weather.forecast.forecastText
                 completion(.value(textForecast))
-                
+
             case .error(let error):
                  completion(.error(error))
             }
-            
+
         }
         
     }
+
 
 }

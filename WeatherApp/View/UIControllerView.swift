@@ -41,7 +41,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         
         print("You have fetch coredata ",resultsCityArray.count)
         
-        if(resultsCityArray.count > 5)
+        if(resultsCityArray.count > 10)
         {
             self.deleteFromCoreData(selectedCities: resultsCityArray)
             resultsCityArray.removeAll()
@@ -90,13 +90,14 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TempDetail"{
-        
-            if let controller = segue.destination.childViewControllers[0] as? WeatherTableViewController {
+             print(self.selectedCity)
+            
+            if let controller = segue.destination.childViewControllers[0] as? TemperatureContrller {
                     controller.selectedCity = self.selectedCity
                     print(controller.selectedCity)
         
-                    controller.selectedState = self.selectedState
-                    print(controller.selectedState)
+//                    controller.selectedState = self.selectedState
+//                    print(controller.selectedState)
             }
         }
     }

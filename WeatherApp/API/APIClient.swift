@@ -27,38 +27,41 @@ protocol APIClient {
 
 extension APIClient{
     func fetch<V: Codable>(with request: URLRequest, completion: @escaping (Either <V, APIError>) -> Void){
-        
+
         let task = session.dataTask(with: request){(data, respond, error) in
-            
+
             guard error == nil else{
                 completion(.error(.apiError))
                 return
             }
-            
+
             guard let respond = respond as? HTTPURLResponse, 200 ..< 300 ~= respond.statusCode else{
                 completion(.error(.badResponse))
                 return
             }
-            
+
             do {
                 // Decode data to object
                 guard let value = try? JSONDecoder().decode(V.self, from: data!) else{
                     completion(.error(.jsonDecoder))
                     return
                 }
-                
+
                 completion(.value(value))
-               
+  
             }
             catch {
-                
+
                 print("error while decoding weather data. ",error)
             }
-            
+
         }
-        
+
         task.resume()
     }
-  
-   
+
+
 }
+
+
+

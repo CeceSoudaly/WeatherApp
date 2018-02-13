@@ -10,6 +10,7 @@ import Foundation
 
 protocol Endpoint {
     
+   
     var baseURL:String { get }
     var path:String { get }
     var queryItems:[URLQueryItem] { get }
@@ -25,9 +26,9 @@ extension Endpoint{
     }
     
     var request: URLRequest{
+       print("url....",urlComponent.url)
+       return URLRequest(url: urlComponent.url!)
         
-        print("url....",urlComponent.url)
-        return URLRequest(url: urlComponent.url!)
     }
 }
 
@@ -36,13 +37,13 @@ enum WeatherEndpoint: Endpoint{
     case tenDayForecast(city: String, state: String)
     
     var  baseURL:String{
-        return "https://api.wunderground.com"
+      return "https://api.wunderground.com"
     }
     
     var path: String{
         switch self{
         case .tenDayForecast(let city, let state):
-            return "/api/395bc939b683474d/forecast10day/q/\(state)/\(city).json"
+           return "/api/395bc939b683474d/forecast10day/q/\(state)/\(city).json"
         }
     }
     
@@ -50,5 +51,8 @@ enum WeatherEndpoint: Endpoint{
         return[]
     }
     
+    
 }
+
+
 

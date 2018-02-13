@@ -19,6 +19,10 @@
 		A925026F200C190300301CD5 /* UIControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925026E200C190300301CD5 /* UIControllerView.swift */; };
 		A927A0001FEE87F50060724B /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9279FFF1FEE87F50060724B /* WeatherConstants.swift */; };
 		A9289C931FEB5F2C00F178B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */; };
+		A92906932030B60C003525F6 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92906922030B60C003525F6 /* Temperature.swift */; };
+		A929069520326EA3003525F6 /* TemperatorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069420326EA3003525F6 /* TemperatorAPI.swift */; };
+		A929069720326F75003525F6 /* EndPointNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069620326F75003525F6 /* EndPointNetWork.swift */; };
+		A929069920327453003525F6 /* TemperatureViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069820327453003525F6 /* TemperatureViewContrller.swift */; };
 		A9290FF1200EE1E700443D42 /* CityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9290FF0200EE1E700443D42 /* CityEntity.swift */; };
 		A9320F7820070AF30092A236 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320F7720070AF30092A236 /* SearchResultsController.swift */; };
 		A9437F511FC9253200D5E36B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9437F501FC9253200D5E36B /* Weather.swift */; };
@@ -66,6 +70,10 @@
 		A925026E200C190300301CD5 /* UIControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerView.swift; sourceTree = "<group>"; };
 		A9279FFF1FEE87F50060724B /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
 		A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A92906922030B60C003525F6 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		A929069420326EA3003525F6 /* TemperatorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatorAPI.swift; sourceTree = "<group>"; };
+		A929069620326F75003525F6 /* EndPointNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointNetWork.swift; sourceTree = "<group>"; };
+		A929069820327453003525F6 /* TemperatureViewContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewContrller.swift; sourceTree = "<group>"; };
 		A9290FF0200EE1E700443D42 /* CityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEntity.swift; sourceTree = "<group>"; };
 		A9320F7720070AF30092A236 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		A9437F501FC9253200D5E36B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = /Users/cecesoudaly/Desktop/WeatherApp/WeatherApp/WeatherApp/API/Weather.swift; sourceTree = "<absolute>"; };
@@ -182,6 +190,7 @@
 		A9108F4B1FC7E11F0079ABE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A929069820327453003525F6 /* TemperatureViewContrller.swift */,
 				A9320F7720070AF30092A236 /* SearchResultsController.swift */,
 				A9108F4E1FC7E1CA0079ABE1 /* WeatherTableViewController.swift */,
 				A925026E200C190300301CD5 /* UIControllerView.swift */,
@@ -197,6 +206,9 @@
 				A98601CF1FCCF5C0004AFA88 /* EndPoint.swift */,
 				A9013A391FD123CF0017BA5B /* WeatherAPIClient.swift */,
 				A9279FFF1FEE87F50060724B /* WeatherConstants.swift */,
+				A92906922030B60C003525F6 /* Temperature.swift */,
+				A929069420326EA3003525F6 /* TemperatorAPI.swift */,
+				A929069620326F75003525F6 /* EndPointNetWork.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -410,11 +422,15 @@
 				A9BC60701FF8A5F0003A9A05 /* ModelA.xcdatamodeld in Sources */,
 				A9108F4F1FC7E1CA0079ABE1 /* WeatherTableViewController.swift in Sources */,
 				A9437F531FC92C5A00D5E36B /* APIClient.swift in Sources */,
+				A92906932030B60C003525F6 /* Temperature.swift in Sources */,
 				A9667DE11FDCF62200CE80C3 /* WeatherCellViewModel.swift in Sources */,
 				A9289C931FEB5F2C00F178B8 /* CoreDataManager.swift in Sources */,
+				A929069520326EA3003525F6 /* TemperatorAPI.swift in Sources */,
 				A927A0001FEE87F50060724B /* WeatherConstants.swift in Sources */,
 				A9320F7820070AF30092A236 /* SearchResultsController.swift in Sources */,
+				A929069920327453003525F6 /* TemperatureViewContrller.swift in Sources */,
 				A925026F200C190300301CD5 /* UIControllerView.swift in Sources */,
+				A929069720326F75003525F6 /* EndPointNetWork.swift in Sources */,
 				A9013A3A1FD123CF0017BA5B /* WeatherAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
