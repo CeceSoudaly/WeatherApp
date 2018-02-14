@@ -1,0 +1,35 @@
+
+                                        ReadMe
+
+Installation:
+
+1) Down load the project from GITHUB
+2) Create a Podfile:
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'WeatherApp' do
+pod 'GooglePlaces'
+pod 'GooglePlacePicker'
+pod 'GoogleMaps'
+
+end
+
+3)Save it to the main directory.
+4)Open Terminal and navigate to your project WeatherApp.
+5) If you haven't already done so, run this command:
+sudo gem install cocoapods
+Wait for it to finish before proceeding.
+6) pod install
+
+
+
+Description of the Application:
+
+This is a simple weather application. It utilizes Swift CoreData, TableView, Google place and calling to Rest services.
+
+
+How to use:
+Simply type in the name of the city on the search bar on top with the magnifying glass.
+You can select as many as 15 cities and click on the record and the weather for the city should display.
