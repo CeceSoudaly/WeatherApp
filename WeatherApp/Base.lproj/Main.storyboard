@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Address-->
+        <!--Temperature-->
         <scene sceneID="6F5-eR-vl9">
             <objects>
                 <viewController id="eYl-f2-Ykx" customClass="UIControllerView" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,7 +68,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1HN-dz-JZm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Address" id="iMS-L3-vDv">
+                    <navigationItem key="navigationItem" title="Temperature" id="iMS-L3-vDv">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="KFi-Se-Sbo">
                             <connections>
                                 <action selector="selectLocation:" destination="eYl-f2-Ykx" id="Gu4-po-D3i"/>
@@ -83,57 +83,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwz-dj-v5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3585" y="154"/>
-        </scene>
-        <!--WeatherDetails-->
-        <scene sceneID="qgV-be-krN">
-            <objects>
-                <tableViewController id="T18-ht-9rl" customClass="WeatherTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qrb-hC-lqT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TempCel" textLabel="gIp-Cx-SOv" detailTextLabel="Mqw-0f-K6o" imageView="9gC-Sf-SWq" style="IBUITableViewCellStyleSubtitle" id="Z1l-yo-Jyw">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z1l-yo-Jyw" id="1p8-dK-7mK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gIp-Cx-SOv">
-                                            <rect key="frame" x="75" y="5" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mqw-0f-K6o">
-                                            <rect key="frame" x="75" y="25.5" width="44" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="imagePlaceholder-2" id="9gC-Sf-SWq">
-                                            <rect key="frame" x="16" y="0.0" width="44" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="T18-ht-9rl" id="vcf-HC-oe8"/>
-                            <outlet property="delegate" destination="T18-ht-9rl" id="ZVh-qQ-1WC"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="WeatherDetails" id="9kS-oU-9a5">
-                        <barButtonItem key="backBarButtonItem" title="ABC" id="Q0S-vO-fMb"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5tD-yd-G1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1233" y="152"/>
         </scene>
         <!--Temperature Contrller-->
         <scene sceneID="arc-e7-Xek">

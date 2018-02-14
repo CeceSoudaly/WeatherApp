@@ -11,21 +11,8 @@ import Foundation
 
 class Constant {
     //MARK:- Constants to call weather webAPI
- 
-        static let ApiKey: String = "395bc939b683474d"
-        static let BaseURL: String = "https://api.wunderground.com"
-        static let Safesearch = "1"
-        static let Extras = "url_m"
-        static let DataFormat = "json"
-        static let No_JSON_CALLBACK = "1"
-        static let degreePerPage = 21
-        static let Status = "stat"
-        static let OKStatus = "ok"
-        static let TotalPages = "pages"
-        static let Forecast = "forecast"
-        static let Simpleforecast = "simpleforecast"
-        static let Message = "msg"
-        static let forecastText = "txt_forecast"
+      static let API_KEY = "0b34ac375df98df4893123f08ae26187"
+      static let baseURL = "http://api.openweathermap.org/data/2.5/weather"
     
 
 }

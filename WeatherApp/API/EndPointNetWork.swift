@@ -9,14 +9,11 @@
 import Foundation
 
 class EndPointNetWork {
-    
-    private static let API_KEY = "0b34ac375df98df4893123f08ae26187"
-    static let baseURL = "http://api.openweathermap.org/data/2.5/weather"
-    
+   
     static func searchURLByCity(city: String) -> NSURL {
-        let escapedCityString = city
-        
-        return NSURL(string: baseURL + "?q=\(escapedCityString)" + "&appid=\(API_KEY)")!
+       let escapedCityString =  city.replacingOccurrences(of: " ",with:  "%20")
+       
+        return NSURL(string: Constant.baseURL + "?q=\(escapedCityString)" + "&appid=\(Constant.API_KEY)")!
     }
     
     static func urlForIcon(iconString: String) -> NSURL {
@@ -25,7 +22,6 @@ class EndPointNetWork {
     
     static func dataAtURL(url: NSURL, completion:@escaping (_ resultData: NSData?) -> Void) {
         let session = URLSession.shared
-        
         let dataTask = session.dataTask(with: url as URL) { (data, _, error) -> Void in
             
             guard let data = data  else {
