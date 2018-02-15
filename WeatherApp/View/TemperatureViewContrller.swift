@@ -24,6 +24,8 @@ class TemperatureContrller: UIViewController {
     
     @IBOutlet weak var CurrentDate: UILabel!
     
+    @IBOutlet weak var tempActivity: UIActivityIndicatorView!
+    
     var cellViewModels = [WeatherCellViewModel]()
     var selectedCity  = "Minneapolis"
     var selectedState = "MN"
@@ -35,12 +37,30 @@ class TemperatureContrller: UIViewController {
         let newBackButton = UIBarButtonItem(image: UIImage(named: "back-button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(TemperatureContrller.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
+        
+        //Activity indicator
+        tempActivity.startAnimating()
+        
         //make sure the city is mapped from search
-        print("hello selectedCity ", selectedCity)
-       if(selectedCity != nil)
-       {
-            getCurrentTempByCity()
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            if(selectedCity != nil)
+            {
+                getCurrentTempByCity()
+            }
+            else{
+                var alert = UIAlertView(title: "Select a City", message: "Make you select a city to check the current temperature.", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+            }
+        } else {
+            print("Internet connection FAILED")
+            var alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
         }
+      
+        //done with work
+        tempActivity.stopAnimating()
+        tempActivity.hidesWhenStopped = true
     }
   
     func getCurrentTempByCity()
@@ -90,7 +110,6 @@ class TemperatureContrller: UIViewController {
             CoreDataManager.saveContext()
         }
         
-       // print("after DELETE results >>>",self.fetchAllTempetures().count);
     }
     
     @objc func back(sender: UIBarButtonItem) {

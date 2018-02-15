@@ -129,6 +129,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" restorationIdentifier="temploader" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="z8B-Km-PjM">
+                                <rect key="frame" x="177" y="250" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -152,6 +156,7 @@
                         <outlet property="Description" destination="VW2-ay-JOc" id="CZU-0X-ju3"/>
                         <outlet property="Main" destination="Mdd-kb-Bpj" id="tVu-3S-z0u"/>
                         <outlet property="TemperatureImage" destination="CtR-Mw-2EP" id="sH9-yc-chL"/>
+                        <outlet property="tempActivity" destination="z8B-Km-PjM" id="Pba-iH-h0F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Z8-B3-3OI" userLabel="First Responder" sceneMemberID="firstResponder"/>

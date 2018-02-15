@@ -21,7 +21,6 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     var resultsCityArray = [CityEntity]()
     var selectedCity  = "Minneapolis"
     var selectedState = "MN"
-    //var selectedIndexPaths = [NSIndexPath]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,7 +29,6 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         
         super.viewDidLoad()
         
-        print("viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
       
@@ -70,19 +68,13 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("You selected cell number: \(indexPath.row)")
-        NSLog("what did you select : \(resultsCityArray[indexPath.row])")
-      
- 
+     
         let city = resultsCityArray[indexPath.row]
         var fullName: String = city.selectCity!
         let fullNameArr = fullName.components(separatedBy: ", ")
-        print(fullNameArr.count)
+    
         self.selectedState  = fullNameArr[1]
-        
-         print("You selected State: \( self.selectedState )")
         self.selectedCity = fullNameArr[0]
-        print("You selected city: \( self.selectedCity )")
         
         //Get the temperature for the selected city and state.
         self.performSegue(withIdentifier: "TempDetail", sender: self)
@@ -90,14 +82,11 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TempDetail"{
-             print(self.selectedCity)
             
             if let controller = segue.destination.childViewControllers[0] as? TemperatureContrller {
                     controller.selectedCity = self.selectedCity
                     print(controller.selectedCity)
-        
-//                    controller.selectedState = self.selectedState
-//                    print(controller.selectedState)
+
             }
         }
     }
@@ -128,7 +117,6 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     
     @IBAction func selectLocation(_ sender: Any) {
         
-        print("Seach City")
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
         let searchControllerDef = UISearchController(searchResultsController: resultsViewController)
