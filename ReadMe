@@ -4,24 +4,11 @@
 Installation:
 
 1) Down load the project from GITHUB
-2) Create a Podfile:
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
-source 'https://github.com/CocoaPods/Specs.git'
-
-target 'WeatherApp' do
-pod 'GooglePlaces'
-pod 'GooglePlacePicker'
-pod 'GoogleMaps'
-
-end
-
-3)Save it to the main directory.
-4)Open Terminal and navigate to your project WeatherApp.
-5) If you haven't already done so, run this command:
+2)Open Terminal and navigate to your project WeatherApp.
+3) If you haven't already done so, run this command:
 sudo gem install cocoapods
 Wait for it to finish before proceeding.
-6) pod install
+4) pod install
 
 
 
