@@ -37,7 +37,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         resultsCityArray = self.fetchAllCity();
         
         
-        print("You have fetch coredata ",resultsCityArray.count)
+        debugPrint("You have fetch coredata ",resultsCityArray.count)
         
         if(resultsCityArray.count > 10)
         {
@@ -61,8 +61,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
       
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "temperatureCell")
         let city = resultsCityArray[indexPath.row]
-        //let cellVievData = city.selectCity
-        cell.textLabel?.text = city.selectCity
+       cell.textLabel?.text = city.selectCity
         
         return cell
     }
@@ -70,24 +69,26 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      
         let city = resultsCityArray[indexPath.row]
-        var fullName: String = city.selectCity!
-        let fullNameArr = fullName.components(separatedBy: ", ")
+        if(city.selectCity != nil)
+        {
+            var fullName: String = city.selectCity!
+            let fullNameArr = fullName.components(separatedBy: ", ")
     
-        self.selectedState  = fullNameArr[1]
-        self.selectedCity = fullNameArr[0]
+            self.selectedState  = fullNameArr[1]
+            self.selectedCity = fullNameArr[0]
         
-        //Get the temperature for the selected city and state.
-        self.performSegue(withIdentifier: "TempDetail", sender: self)
+            //Get the temperature for the selected city and state.
+            self.performSegue(withIdentifier: "TempDetail", sender: self)
+        }
     }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TempDetail"{
             
-            if let controller = segue.destination.childViewControllers[0] as? TemperatureContrller {
+            if let controller = segue.destination.childViewControllers[0] as? TemperatureViewController {
                     controller.selectedCity = self.selectedCity
-                    print(controller.selectedCity)
-
-            }
+                    debugPrint(controller.selectedCity)
+           }
         }
     }
     
@@ -134,7 +135,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
             try  CoreDataManager.saveContext()
 
         } catch {
-            print("Error while trying to save the Selected City: \(error)")
+            debugPrint("Error while trying to save the Selected City: \(error)")
         }
     }
     
@@ -154,7 +155,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
             }
             
         } catch {
-            print("Error while trying to delete the Selected City: \(error)")
+            debugPrint("Error while trying to delete the Selected City: \(error)")
         }
     }
 
@@ -166,10 +167,10 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CityEntity")
             results = try CoreDataManager.getContext().fetch(fetchRequest) as! [CityEntity]
             
-            print("how many were stored in cordata? ",results.count)
+            debugPrint("how many were stored in cordata? ",results.count)
         }
         catch{
-            print("Error in fetchAllCity")
+            debugPrint("Error in fetchAllCity")
         }
         return results
     }
@@ -189,7 +190,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         }
         self.searchResultController.reloadDataWithArray(self.resultsArray)
         
-        print(resultsArray)
+        debugPrint(resultsArray)
     }
     
     func didFailAutocompleteWithError(_ error: Error) {
@@ -205,9 +206,9 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         // Do something with the selected place.
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
+        debugPrint("Place name: \(place.name)")
+        debugPrint("Place address: \(place.formattedAddress)")
+        debugPrint("Place attributions: \(place.attributions)")
         dismiss(animated: true, completion: nil)
      
         //creating  a new instance of CityEntity
@@ -228,7 +229,7 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didFailAutocompleteWithError error: Error){
         // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
+        debugPrint("Error: ", error.localizedDescription)
     }
     
     // Turn the network activity indicator on and off again.

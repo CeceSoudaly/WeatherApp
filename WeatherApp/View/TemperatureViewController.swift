@@ -1,5 +1,5 @@
 //
-//  TemperatureContrller.swift
+//  TemperatureViewController.swift
 //  WeatherApp
 //
 //  Created by Cece Soudaly on 2/12/18.
@@ -11,7 +11,7 @@
 import UIKit
 import CoreData
 
-class TemperatureContrller: UIViewController {
+class TemperatureViewController: UIViewController {
     @IBOutlet weak var TemperatureImage: UIImageView!
     
     @IBOutlet weak var City: UILabel!
@@ -36,7 +36,7 @@ class TemperatureContrller: UIViewController {
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
 
         
-        let newBackButton = UIBarButtonItem(image: UIImage(named: "back-button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(TemperatureContrller.back(sender:)))
+        let newBackButton = UIBarButtonItem(image: UIImage(named: "back-button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(TemperatureViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
         
@@ -45,7 +45,7 @@ class TemperatureContrller: UIViewController {
         
         //make sure the city is mapped from search
         if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection OK")
+            debugPrint("Internet connection OK")
             if(selectedCity != nil)
             {
                 getCurrentTempByCity()
@@ -54,15 +54,17 @@ class TemperatureContrller: UIViewController {
                 var alert = UIAlertView(title: "Select a City", message: "Make you select a city to check the current temperature.", delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
             }
+            
+            //done with work
+            tempActivity.stopAnimating()
+            tempActivity.hidesWhenStopped = true
+            
         } else {
-            print("Internet connection FAILED")
+            debugPrint("Internet connection FAILED")
             var alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
       
-        //done with work
-        tempActivity.stopAnimating()
-        tempActivity.hidesWhenStopped = true
     }
   
     func getCurrentTempByCity()

@@ -19,9 +19,9 @@
 		A92827FC2033D010000E2FBC /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = A92827FB2033D010000E2FBC /* ReadMe */; };
 		A9289C931FEB5F2C00F178B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */; };
 		A92906932030B60C003525F6 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92906922030B60C003525F6 /* Temperature.swift */; };
-		A929069520326EA3003525F6 /* TemperatorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069420326EA3003525F6 /* TemperatorAPI.swift */; };
+		A929069520326EA3003525F6 /* TemperatureAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069420326EA3003525F6 /* TemperatureAPI.swift */; };
 		A929069720326F75003525F6 /* EndPointNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069620326F75003525F6 /* EndPointNetWork.swift */; };
-		A929069920327453003525F6 /* TemperatureViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069820327453003525F6 /* TemperatureViewContrller.swift */; };
+		A929069920327453003525F6 /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929069820327453003525F6 /* TemperatureViewController.swift */; };
 		A9290FF1200EE1E700443D42 /* CityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9290FF0200EE1E700443D42 /* CityEntity.swift */; };
 		A9320F7820070AF30092A236 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320F7720070AF30092A236 /* SearchResultsController.swift */; };
 		A9667DE11FDCF62200CE80C3 /* WeatherCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667DE01FDCF62200CE80C3 /* WeatherCellViewModel.swift */; };
@@ -67,9 +67,9 @@
 		A92827FB2033D010000E2FBC /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A92906922030B60C003525F6 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
-		A929069420326EA3003525F6 /* TemperatorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatorAPI.swift; sourceTree = "<group>"; };
+		A929069420326EA3003525F6 /* TemperatureAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAPI.swift; sourceTree = "<group>"; };
 		A929069620326F75003525F6 /* EndPointNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointNetWork.swift; sourceTree = "<group>"; };
-		A929069820327453003525F6 /* TemperatureViewContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewContrller.swift; sourceTree = "<group>"; };
+		A929069820327453003525F6 /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
 		A9290FF0200EE1E700443D42 /* CityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEntity.swift; sourceTree = "<group>"; };
 		A9320F7720070AF30092A236 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		A9667DE01FDCF62200CE80C3 /* WeatherCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCellViewModel.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		A9108F4B1FC7E11F0079ABE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A929069820327453003525F6 /* TemperatureViewContrller.swift */,
+				A929069820327453003525F6 /* TemperatureViewController.swift */,
 				A9320F7720070AF30092A236 /* SearchResultsController.swift */,
 				A925026E200C190300301CD5 /* UIControllerView.swift */,
 			);
@@ -197,7 +197,7 @@
 			children = (
 				A9279FFF1FEE87F50060724B /* WeatherConstants.swift */,
 				A92906922030B60C003525F6 /* Temperature.swift */,
-				A929069420326EA3003525F6 /* TemperatorAPI.swift */,
+				A929069420326EA3003525F6 /* TemperatureAPI.swift */,
 				A929069620326F75003525F6 /* EndPointNetWork.swift */,
 				A9B35AD02035196F00FD64E4 /* Reachability.swift */,
 			);
@@ -414,10 +414,10 @@
 				A92906932030B60C003525F6 /* Temperature.swift in Sources */,
 				A9667DE11FDCF62200CE80C3 /* WeatherCellViewModel.swift in Sources */,
 				A9289C931FEB5F2C00F178B8 /* CoreDataManager.swift in Sources */,
-				A929069520326EA3003525F6 /* TemperatorAPI.swift in Sources */,
+				A929069520326EA3003525F6 /* TemperatureAPI.swift in Sources */,
 				A927A0001FEE87F50060724B /* WeatherConstants.swift in Sources */,
 				A9320F7820070AF30092A236 /* SearchResultsController.swift in Sources */,
-				A929069920327453003525F6 /* TemperatureViewContrller.swift in Sources */,
+				A929069920327453003525F6 /* TemperatureViewController.swift in Sources */,
 				A925026F200C190300301CD5 /* UIControllerView.swift in Sources */,
 				A929069720326F75003525F6 /* EndPointNetWork.swift in Sources */,
 			);

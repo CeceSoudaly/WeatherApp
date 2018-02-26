@@ -25,7 +25,7 @@ class EndPointNetWork {
         let dataTask = session.dataTask(with: url as URL) { (data, _, error) -> Void in
             
             guard let data = data  else {
-                print(error?.localizedDescription)
+                debugPrint(error?.localizedDescription)
                 completion(nil)
                 return
             }

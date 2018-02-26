@@ -79,17 +79,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CnB-UE-nRm" id="bLE-yl-m05"/>
-                        <segue destination="ObV-f6-5iv" kind="showDetail" identifier="TempDetail" id="m7E-LZ-oxA"/>
+                        <segue destination="ObV-f6-5iv" kind="showDetail" identifier="TempDetail" id="qAG-wC-Pfv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwz-dj-v5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3585" y="154"/>
         </scene>
-        <!--Temperature Contrller-->
+        <!--Temperature View Controller-->
         <scene sceneID="arc-e7-Xek">
             <objects>
-                <viewController id="sd2-2f-lzy" customClass="TemperatureContrller" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sd2-2f-lzy" customClass="TemperatureViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bsN-At-zl3"/>
                         <viewControllerLayoutGuide type="bottom" id="V0a-xl-a8E"/>

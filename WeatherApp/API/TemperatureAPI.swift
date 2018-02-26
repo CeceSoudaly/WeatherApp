@@ -19,7 +19,7 @@ class TemperatureAPI {
             
             guard let resultData = resultData
                 else {
-                    print("NO DATA RETURNED")
+                    debugPrint("NO DATA RETURNED")
                     completion(nil)
                     return
             }
@@ -49,7 +49,7 @@ class TemperatureAPI {
         EndPointNetWork.dataAtURL(url: url) { (resultData) -> Void in
             guard let resultData = resultData
                 else {
-                    print("NO DATA RETURNED")
+                    debugPrint("NO DATA RETURNED")
                     completion(nil)
                     return
             }
