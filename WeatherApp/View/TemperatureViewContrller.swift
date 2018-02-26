@@ -33,6 +33,8 @@ class TemperatureContrller: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+
         
         let newBackButton = UIBarButtonItem(image: UIImage(named: "back-button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(TemperatureContrller.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
