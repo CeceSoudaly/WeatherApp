@@ -31,20 +31,17 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         
         tableView.dataSource = self
         tableView.delegate = self
-      
         
         //load core data
         resultsCityArray = self.fetchAllCity();
-        
-        
-        debugPrint("You have fetch coredata ",resultsCityArray.count)
-        
-        if(resultsCityArray.count > 10)
-        {
-            self.deleteFromCoreData(selectedCities: resultsCityArray)
-            resultsCityArray.removeAll()
-            
-        }
+      
+        //if it more than 15 we do not allow them to add anymore
+//        if(resultsCityArray.count > 15)
+//        {
+//            self.deleteFromCoreData(selectedCities: resultsCityArray)
+//            resultsCityArray.removeAll()
+//
+//        }
         
          DispatchQueue.main.async()  {
              self.tableView.reloadData()
@@ -215,14 +212,17 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
         let newCityEntity = CityEntity(context: CoreDataManager.getContext())
         
         //Save select city to core data, convert selected city string to entity and append to the array
-        saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
+        if(place.formattedAddress?.isEmpty == false){
+            saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
+            newCityEntity.selectCity = place.formattedAddress!
         
-        newCityEntity.selectCity = place.formattedAddress!
-        resultsCityArray.append(newCityEntity)
-        self.tableView.beginUpdates()
-
-        tableView.insertRows(at: [IndexPath(row: resultsCityArray.count - 1 , section: 0)], with: .automatic)
-        self.tableView.endUpdates()
+            resultsCityArray.append(newCityEntity)
+            self.tableView.beginUpdates()
+            
+            tableView.insertRows(at: [IndexPath(row: resultsCityArray.count - 1 , section: 0)], with: .automatic)
+            self.tableView.endUpdates()
+    
+        }
   
     }
     
