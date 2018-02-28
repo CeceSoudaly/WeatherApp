@@ -34,14 +34,6 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
         
         //load core data
         resultsCityArray = self.fetchAllCity();
-      
-        //if it more than 15 we do not allow them to add anymore
-//        if(resultsCityArray.count > 15)
-//        {
-//            self.deleteFromCoreData(selectedCities: resultsCityArray)
-//            resultsCityArray.removeAll()
-//
-//        }
         
          DispatchQueue.main.async()  {
              self.tableView.reloadData()
@@ -50,7 +42,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //currently only a testing number
+     
         return resultsCityArray.count
     }
     
