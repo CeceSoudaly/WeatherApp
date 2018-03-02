@@ -32,7 +32,6 @@ class TemperatureViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        super.viewDidLoad()
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
 
         

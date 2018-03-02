@@ -26,9 +26,6 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
     
     
     override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -140,7 +137,6 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
             for objectDelete in results {
                     CoreDataManager.getContext().delete(objectDelete)
                     CoreDataManager.saveContext()
-                //    break
             }
             
         } catch {
