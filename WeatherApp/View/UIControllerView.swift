@@ -195,7 +195,7 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
         if(place.formattedAddress?.isEmpty == false){
             
             newCityEntity.selectCity = place.formattedAddress!
-            
+            //check to be sure not empty row are created
             if(newCityEntity.selectCity?.isEmpty)!
             {
                 saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
