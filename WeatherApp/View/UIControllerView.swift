@@ -195,16 +195,10 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
         if(place.formattedAddress?.isEmpty == false){
             
             newCityEntity.selectCity = place.formattedAddress!
-            //check to be sure not empty row are created
-            if(newCityEntity.selectCity?.isEmpty)!
-            {
-                saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
-            }
-            resultsCityArray.append(newCityEntity)
-            self.tableView.beginUpdates()
+            saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
             
-            tableView.insertRows(at: [IndexPath(row: resultsCityArray.count - 1 , section: 0)], with: .automatic)
-            self.tableView.endUpdates()
+            resultsCityArray.append(newCityEntity)
+            self.tableView.reloadData()
         }
         
     }
