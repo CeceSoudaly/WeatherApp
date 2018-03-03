@@ -193,15 +193,17 @@ extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
         
         //Save select city to core data, convert selected city string to entity and append to the array
         if(place.formattedAddress?.isEmpty == false){
-            saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
-            newCityEntity.selectCity = place.formattedAddress!
             
+            newCityEntity.selectCity = place.formattedAddress!
+            if(newCityEntity.selectCity?.isEmpty)!
+            {
+                saveToCoreData(selectedCity: place.formattedAddress!, cityEntity: newCityEntity)
+            }
             resultsCityArray.append(newCityEntity)
             self.tableView.beginUpdates()
             
             tableView.insertRows(at: [IndexPath(row: resultsCityArray.count - 1 , section: 0)], with: .automatic)
             self.tableView.endUpdates()
-            
         }
         
     }
