@@ -33,7 +33,7 @@ class TemperatureViewController: UIViewController {
     override func viewDidLoad() {
         
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-
+        
         
         let newBackButton = UIBarButtonItem(image: UIImage(named: "back-button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(TemperatureViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
@@ -63,9 +63,9 @@ class TemperatureViewController: UIViewController {
             var alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
-      
+        
     }
-  
+    
     func getCurrentTempByCity()
     {
         TemperatureAPI.weatherBySearchCity(city: self.selectedCity) { (result) in
@@ -83,7 +83,7 @@ class TemperatureViewController: UIViewController {
                 self.CurrentDate.text = currentDateString
                 
                 if let temperatureC = weatherResult.temperatureC {
-                  //  self.CurrentTemp.text = String(temperatureC) + " °C"
+                    //  self.CurrentTemp.text = String(temperatureC) + " °C"
                     self.CurrentTemp.text = String(self.temperatureInFahrenheit(temperature: Double(temperatureC))) + " °F"
                 } else {
                     self.CurrentTemp.text = "No temperature available"
@@ -93,7 +93,7 @@ class TemperatureViewController: UIViewController {
             }
             
             TemperatureAPI.weatherIconForIconCode(iconCode: weatherResult.iconString, completion: { (image) -> Void in
-                 DispatchQueue.main.async(){ () -> Void in
+                DispatchQueue.main.async(){ () -> Void in
                     self.TemperatureImage.image = image
                 };
             })
