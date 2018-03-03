@@ -119,15 +119,7 @@ class TemperatureViewController: UIViewController {
         // Perform your custom actions
         // ...
         // Go back to the previous ViewController
-        //        _ = navigationController?.popViewController(animated: true)
-        
-        if let navController = self.navigationController {
-            //navController.popViewController(animated: true)
-            self.dismiss(animated: true) {
-                _ = self.navigationController?.navigationController?.popViewController(animated: true)
-            }
-            
-        }
+         dismiss(animated: true, completion: nil)
     }
     
 }
