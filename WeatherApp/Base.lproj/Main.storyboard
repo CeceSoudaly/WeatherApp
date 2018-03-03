@@ -13,7 +13,7 @@
         <!--Temperature-->
         <scene sceneID="6F5-eR-vl9">
             <objects>
-                <viewController id="eYl-f2-Ykx" customClass="UIControllerView" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eYl-f2-Ykx" customClass="MainControllerView" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n3n-aR-UVQ"/>
                         <viewControllerLayoutGuide type="bottom" id="6tS-Dy-qpp"/>

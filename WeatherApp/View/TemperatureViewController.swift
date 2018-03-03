@@ -34,7 +34,6 @@ class TemperatureViewController: UIViewController {
         
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         
-        
         let newBackButton = UIBarButtonItem(image: UIImage(named: "back-button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(TemperatureViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
@@ -56,7 +55,6 @@ class TemperatureViewController: UIViewController {
             
             //done with work
             tempActivity.stopAnimating()
-            tempActivity.hidesWhenStopped = true
             
         } else {
             debugPrint("Internet connection FAILED")

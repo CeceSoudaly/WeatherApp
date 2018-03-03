@@ -14,7 +14,7 @@
 		A9108F241FC7DBF00079ABE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9108F221FC7DBF00079ABE1 /* LaunchScreen.storyboard */; };
 		A9108F2F1FC7DBF00079ABE1 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F2E1FC7DBF00079ABE1 /* WeatherAppTests.swift */; };
 		A9108F3A1FC7DBF00079ABE1 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9108F391FC7DBF00079ABE1 /* WeatherAppUITests.swift */; };
-		A925026F200C190300301CD5 /* UIControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925026E200C190300301CD5 /* UIControllerView.swift */; };
+		A925026F200C190300301CD5 /* MainControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925026E200C190300301CD5 /* MainControllerView.swift */; };
 		A927A0001FEE87F50060724B /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9279FFF1FEE87F50060724B /* WeatherConstants.swift */; };
 		A92827FC2033D010000E2FBC /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = A92827FB2033D010000E2FBC /* ReadMe */; };
 		A9289C931FEB5F2C00F178B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */; };
@@ -62,7 +62,7 @@
 		A9108F351FC7DBF00079ABE1 /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9108F391FC7DBF00079ABE1 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		A9108F3B1FC7DBF00079ABE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A925026E200C190300301CD5 /* UIControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerView.swift; sourceTree = "<group>"; };
+		A925026E200C190300301CD5 /* MainControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerView.swift; sourceTree = "<group>"; };
 		A9279FFF1FEE87F50060724B /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
 		A92827FB2033D010000E2FBC /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		A9289C921FEB5F2C00F178B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 			children = (
 				A929069820327453003525F6 /* TemperatureViewController.swift */,
 				A9320F7720070AF30092A236 /* SearchResultsController.swift */,
-				A925026E200C190300301CD5 /* UIControllerView.swift */,
+				A925026E200C190300301CD5 /* MainControllerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,7 +418,7 @@
 				A927A0001FEE87F50060724B /* WeatherConstants.swift in Sources */,
 				A9320F7820070AF30092A236 /* SearchResultsController.swift in Sources */,
 				A929069920327453003525F6 /* TemperatureViewController.swift in Sources */,
-				A925026F200C190300301CD5 /* UIControllerView.swift in Sources */,
+				A925026F200C190300301CD5 /* MainControllerView.swift in Sources */,
 				A929069720326F75003525F6 /* EndPointNetWork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

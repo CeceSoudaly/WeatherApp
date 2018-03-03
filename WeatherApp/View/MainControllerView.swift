@@ -12,7 +12,7 @@ import GooglePlaces
 import CoreData
 
 
-class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate,GMSAutocompleteFetcherDelegate
+class  MainControllerView:  UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate,GMSAutocompleteFetcherDelegate
 {
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -177,7 +177,7 @@ class  UIControllerView:  UIViewController,UITableViewDataSource, UITableViewDel
 }
 
 // Handle the user's selection.
-extension  UIControllerView: GMSAutocompleteResultsViewControllerDelegate {
+extension  MainControllerView: GMSAutocompleteResultsViewControllerDelegate {
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
