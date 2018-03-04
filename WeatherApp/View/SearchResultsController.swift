@@ -33,40 +33,7 @@ class SearchResultsController: UITableViewController {
         cell.textLabel?.text = self.searchResults[indexPath.row]
         return cell
     }
-    
-    
-    override func tableView(_ tableView: UITableView,
-                            didSelectRowAt indexPath: IndexPath){
-        // 1
-        self.dismiss(animated: true, completion: nil)
-        // 2
-        let urlpath = "https://maps.googleapis.com/maps/api/geocode/json?address=\(self.searchResults[indexPath.row])&sensor=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        
-        let url = URL(string: urlpath!)
-        
-        let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
-            // 3
-            
-            do {
-                if data != nil{
-                    let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as! NSDictionary
-                    
-                    let lat =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lat")) as! Double
-                    
-                    let lon =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lng")) as! Double
-                    // 4
-                    self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
-                }
-                
-            }catch {
-                debugPrint("Error")
-            }
-        }
-        // 5
-        task.resume()
-    }
-    
-    
+  
     func reloadDataWithArray(_ array:[String]){
         self.searchResults = array
         self.tableView.reloadData()

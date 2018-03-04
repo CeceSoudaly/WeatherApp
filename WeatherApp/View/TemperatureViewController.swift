@@ -49,7 +49,7 @@ class TemperatureViewController: UIViewController {
                 getCurrentTempByCity()
             }
             else{
-                var alert = UIAlertView(title: "Select a City", message: "Make you select a city to check the current temperature.", delegate: nil, cancelButtonTitle: "OK")
+                let alert = UIAlertView(title: "Select a City", message: "Please select a city to check the current temperature.", delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
             }
             

@@ -65,6 +65,9 @@ class  MainControllerView:  UIViewController,UITableViewDataSource, UITableViewD
             
             //Get the temperature for the selected city and state.
             self.performSegue(withIdentifier: "TempDetail", sender: self)
+            
+            //Change the selected background view of the cell.
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
